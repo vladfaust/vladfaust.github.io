@@ -1,0 +1,19 @@
+;;;
+	"title": "Vlad Faust | Vladislav Faust | Vlad Faust.com"
+;;;
+
+.container
+	#hi.center-block
+		%h1= "Hi, my name is #{ link_to "Vlad Faust", '#' },"
+		%h2= "and I'm the #{content_tag :em, 'next big startup'} founder."
+	%hr
+	#socials.center-block
+		= link_to (image_tag image_path('socials/github.svg'), class: 'social-icon', id: 'github'), socials[:github], target: :blank, class: 'social-link', alt: socials[:github]
+		= link_to (image_tag image_path('socials/twitter.svg'), class: 'social-icon', id: 'twitter'), socials[:twitter], target: :blank, class: 'social-link', alt: socials[:twitter]
+		= link_to (image_tag image_path('socials/telegram.svg'), class: 'social-icon', id: 'telegram'), socials[:telegram], target: :blank, class: 'social-link', alt: socials[:telegram]
+		= link_to (image_tag image_path('socials/vkontakte.svg'), class: 'social-icon', id: 'vkontakte'), socials[:vkontakte], target: :blank, class: 'social-link', alt: socials[:vkontakte]
+		= link_to (image_tag image_path('socials/google_play.svg'), class: 'social-icon', id: 'google-play'), socials[:google_play], target: :blank, class: 'social-link', alt: socials[:google_play]
+		= link_to (image_tag image_path('socials/instagram.svg'), class: 'social-icon', id: 'instagram'), socials[:instagram], target: :blank, class: 'social-link', alt: socials[:instagram]
+	%hr
+	#contact.center-block
+		%h4= "Or email me at #{ mail_to socials[:email], socials[:email], id: 'mailto' }"
