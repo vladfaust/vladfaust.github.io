@@ -19,4 +19,4 @@ gem 'sass'
 gem 'haml'
 gem 'coffee-script'
 
-gem 'middleman-deploy', '~> 1.0'
+gem 'middleman-deploy'
