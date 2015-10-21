@@ -16,6 +16,7 @@ gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 gem 'bootstrap-sass', require: false
 gem 'jquery-middleman'
 gem 'sass'
+gem 'bourbon'
 gem 'haml'
 gem 'coffee-script'
 

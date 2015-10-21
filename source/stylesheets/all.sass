@@ -2,9 +2,11 @@
 
 @import "normalize.css"
 @import "bootstrap"
+@import "bourbon"
 
 #hi, #contact, #socials
   text-align: center
+  max-width: 90%
 
 #hi h2
   margin-top: -0.2em
@@ -15,7 +17,8 @@
       margin-left: 0.2em
 
   .social-icon
-    height: 48px
+    @include calc(width, '(100% - 0.2em * 16) / 6')
+    max-width: 48px
 
 #contact
   margin-bottom: 50px
