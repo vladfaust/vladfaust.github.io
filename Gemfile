@@ -10,7 +10,6 @@ gem 'middleman-livereload'
 gem 'bootstrap-sass', require: false
 gem 'jquery-middleman'
 gem 'sass'
-gem 'bourbon'
 gem 'slim'
 gem 'coffee-script'
 
