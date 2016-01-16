@@ -1,0 +1,36 @@
+- @title = 'Vlad Faust | Vladislav Faust | VladFaust.com'
+
+.container-fluid
+  .row
+    .col-md-2
+    .col-md-8
+      .row
+        .col-xs-1
+        .col-xs-10
+          #hi
+            h1= "Hi, my name is #{ link_to "Vlad Faust", '#' },"
+            h2= "and I'm the #{ content_tag :em, 'next big startup' } founder."
+          hr
+          #projects
+            = partial(:project, locals: {name: 'Parrotfarm', image: 'projects/parrotfarm.jpg', description: 'A showcase opensource Rails + AngularJS app', link: 'https://github.com/vladfaust/parrotfarm'})
+            = partial(:project, locals: {name: 'Jumpin Sweeties', image: 'projects/jumpinsweeties.jpg', description: 'Handcrafted Android game written with libGDX', link: 'https://play.google.com/store/apps/details?id=com.vladislavfaust.jumpinsweeties.android'})
+            = partial(:project, locals: {name: 'dicesBot', image: 'projects/dicesbot.jpg', description: 'Telegram lottery bot w/ Bitcoin included, written in Ruby', link: 'https://telegram.me/dicesBot'})
+          hr
+          #socials
+            h2
+              | Say hello to me:&nbsp
+              = link_to 'hello@vladfaust.com', 'mailto:hello@vladfaust.com'
+            h3
+              | Also seen on&nbsp
+              = link_to 'GitHub', 'https://github.com/vladfaust'
+              | &nbspand&nbsp
+              = link_to 'Twitter', 'https://twitter.com/vladfaust'
+            /= link_to (image_tag image_path('socials/github.svg'), class: 'social-icon', id: 'github'), socials[:github], target: :blank, class: 'social-link', alt: socials[:github]
+            /= link_to (image_tag image_path('socials/twitter.svg'), class: 'social-icon', id: 'twitter'), socials[:twitter], target: :blank, class: 'social-link', alt: socials[:twitter]
+            /= link_to (image_tag image_path('socials/telegram.svg'), class: 'social-icon', id: 'telegram'), socials[:telegram], target: :blank, class: 'social-link', alt: socials[:telegram]
+            /= link_to (image_tag image_path('socials/vkontakte.svg'), class: 'social-icon', id: 'vkontakte'), socials[:vkontakte], target: :blank, class: 'social-link', alt: socials[:vkontakte]
+            /= link_to (image_tag image_path('socials/google_play.svg'), class: 'social-icon', id: 'google-play'), socials[:google_play], target: :blank, class: 'social-link', alt: socials[:google_play]
+            /= link_to (image_tag image_path('socials/instagram.svg'), class: 'social-icon', id: 'instagram'), socials[:instagram], target: :blank, class: 'social-link', alt: socials[:instagram]
+            /= link_to (image_tag image_path('socials/mail.svg'), class: 'social-icon', id: 'mail'), socials[:email], target: :blank, class: 'social-link', alt: socials[:email]
+        .col-xs-1
+    .col-md-2

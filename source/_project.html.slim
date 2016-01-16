@@ -1,0 +1,8 @@
+.project.well
+  table
+    tr
+      td
+        = image_tag(image, class: 'img-responsive img-rounded')
+      td.text-left.project-description
+        .lead= link_to name, link, target: :blank
+        = description

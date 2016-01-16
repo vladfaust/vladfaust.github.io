@@ -33,11 +33,12 @@
 ###
 
 # Automatic image dimensions on image_tag helper
-activate :automatic_image_sizes
+# activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
+  config[:file_watcher_ignore] += [/.idea\//]
 end
 
 # Methods defined in the helpers block are available in templates
@@ -81,5 +82,5 @@ activate :deploy do |deploy|
 end
 
 # Variables
-@socials = { github: 'https://github.com/vladfaust', vkontakte: 'https://vk.com/vladfaust', telegram: 'https://telegram.me/vladfaust', instagram: 'https://instagram.com/vladfaust', google_play: 'https://play.google.com/store/apps/developer?id=VLADISLAV+FAUST', twitter: 'https://twitter.com/vladfaust', email: 'hello@vladfaust.com' }
+@socials = { github: 'https://github.com/vladfaust', vkontakte: 'https://vk.com/vladfaust', telegram: 'https://telegram.me/vladfaust', instagram: 'https://instagram.com/vladfaust', google_play: 'https://play.google.com/store/apps/developer?id=VLADISLAV+FAUST', twitter: 'https://twitter.com/vladfaust', email: 'mailto:hello@vladfaust.com' }
 set :socials, @socials

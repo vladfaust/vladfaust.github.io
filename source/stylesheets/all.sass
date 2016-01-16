@@ -1,33 +1,74 @@
 @charset "utf-8"
+@import url("https://fonts.googleapis.com/css?family=Bitter")
+
+$font-size-base: 16px
 
 @import "normalize.css"
 @import "bootstrap"
 @import "bourbon"
 
-#hi, #contact, #socials
-  text-align: center
-  max-width: 90%
+body
+  background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=626262&density=18&opacity=11")
+  font-family: 'Bitter', sans-serif
 
 #hi h2
   margin-top: -0.2em
 
+#hi
+  margin-top: 15em
+  margin-top: 20vh
+
 #socials
+  margin-bottom: 15em
+  margin-bottom: 20vh
+
   .social-link
     &:not(:first-child)
-      margin-left: 0.2em
+      margin-left: 0.5vh
 
   .social-icon
-    @include calc(width, '(100% - 0.2em * 16) / 6')
-    max-width: 48px
+    width: 10vw
+    max-width: 7vh
 
-#contact
-  margin-bottom: 50px
+.project
+  img
+    max-width: 5em
 
-.vertical-center
-  display: flex
-  align-items: center
-  justify-content: center
+.project-block
+  display: inline-block
+  vertical-align: middle
 
-.full-screen-height
-  min-height: 100%
-  min-height: 100vh
+.project-description
+  padding-left: 1em
+
+  .lead
+    margin-bottom: 0em
+
+@media (max-width: $screen-md-min)
+  h1
+    font-size: 7vw
+
+  h2
+    font-size: 5vw
+    max-font-size: 5vh
+
+  p, td
+    font-size: 4vw
+    max-font-size: 4vh
+
+  .lead
+    font-size: 5vw
+    max-font-size: 5vh
+
+  hr
+    margin-top: 3vw
+    margin-bottom: 3vw
+
+  .well:not(:first-child)
+    margin-top: 3vw
+
+  #hi
+    margin-top: 5vh
+
+  #socials
+    margin-bottom: 5vh
