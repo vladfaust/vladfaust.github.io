@@ -42,7 +42,7 @@ body {
   font-size: 1.5em;
 }
 
-.footer a:link {
+.footer a:link, .footer a:visited, .footer a:active, .footer a:focus {
   color: white;
 }
 
