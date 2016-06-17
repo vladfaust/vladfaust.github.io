@@ -1,0 +1,86 @@
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling:touch;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.flex-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 3em;
+  color: #e9573f;
+}
+
+.content {
+  height: 100%;
+}
+
+.footer {
+  height: 4em;
+  background-color: #e9573f;
+}
+
+.footer .email-link {
+  display: none;
+}
+
+.footer a:link, .footer a:visited, .footer a:active, .footer a:focus {
+  color: white;
+}
+
+.footer .social-icon {
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.footer .social-icon:not(:first-child) {
+  margin-left: 0.6em;
+}
+
+.footer .social-icon img {
+  height: 2.2em;
+  margin-bottom: -0.2em;
+}
+
+@media (min-width: 767px) {
+  .title {
+    font-size: 5em;
+  }
+
+  .footer {
+    height: 4em;
+  }
+
+  .footer .email-link {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+  }
+
+  .footer .social-icons {
+    display: inline-block;
+  }
+
+  .footer .social-icons .email-icon {
+    display: none;
+  }
+}
