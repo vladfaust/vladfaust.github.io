@@ -1,19 +1,9 @@
-html, body {
-  height: 100vh;
-  overflow: hidden;
-}
-
 body {
-  overflow-y: scroll;
-  -webkit-overflow-scrolling:touch;
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+  padding: 10px;
+  font-family: sans-serif;
 }
 
 .flex-container {
-  height: 100%;
-  padding: 0;
-  margin: 0;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -21,66 +11,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
-.title {
-  font-size: 3em;
-  color: #e9573f;
+.flex-item {
+  max-width: 600px;
 }
 
-.content {
-  height: 100%;
+a {
+  color: black;
+  font-weight: bold;
 }
 
-.footer {
-  height: 4em;
-  background-color: #e9573f;
-}
-
-.footer .email-link {
-  display: none;
-}
-
-.footer a:link, .footer a:visited, .footer a:active, .footer a:focus {
-  color: white;
-}
-
-.footer .social-icon {
+#projects {
+  max-width: 100%;
   display: inline-block;
-  text-decoration: none;
-  vertical-align: middle;
 }
 
-.footer .social-icon:not(:first-child) {
-  margin-left: 0.6em;
+#projects ul {
+  margin: auto;
 }
 
-.footer .social-icon img {
-  height: 2.2em;
-  margin-bottom: -0.2em;
+#projects li {
+  text-align: left;
+  list-style-type: square;
 }
 
-@media (min-width: 767px) {
-  .title {
-    font-size: 5em;
-  }
+#projects li .li-title {
+  font-size: bigger;
+}
 
-  .footer {
-    height: 4em;
-  }
-
-  .footer .email-link {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.5em;
-  }
-
-  .footer .social-icons {
-    display: inline-block;
-  }
-
-  .footer .social-icons .email-icon {
-    display: none;
-  }
+#projects li.old-project {
+  opacity: 0.5;
 }
