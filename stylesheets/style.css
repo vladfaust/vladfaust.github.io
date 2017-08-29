@@ -13,6 +13,10 @@ body {
   justify-content: center;
 }
 
+.flex-item {
+  max-width: 600px;
+}
+
 a {
   color: black;
   font-weight: bold;
