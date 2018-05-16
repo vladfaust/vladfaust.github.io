@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+body
+  align-items: center
+  display: flex
+  flex-direction: column
+  font-family: 'Roboto', sans-serif
+  font-size: 18px
+  padding: 2rem
+
+  > *
+    width: 100%
+    max-width: 600px
+
+p
+  margin: 0
+
+  & + p
+    margin-top: 1rem
+
+body, html
+  margin: 0
+
+.bar
+  position: absolute
+  top: 0
+  left: 0
+  max-width: 100%
+  height: 5px
+  background-color: #0a83d8
+
+h1, h2
+  margin: 0 0 1rem
+
+  &:not(.top)
+    margin: 1rem 0
+
+a
+  text-decoration: none
+  color: #0a83d8
+
+ul.projects
+  padding: 0
+  margin: 0
+  list-style: none
+
+  li
+    &:not(:first-of-type)
+      margin-top: 0.75rem
+
+    a
+      display: table-cell
+      font-size: 1.2rem
+
+      img
+        display: inline-block
+        margin-left: 0.25rem
+        margin-bottom: -0.25rem

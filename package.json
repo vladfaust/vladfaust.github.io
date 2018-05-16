@@ -1,0 +1,31 @@
+{
+  "name": "vladfaust.github.io",
+  "version": "1.0.0",
+  "description": "Vlad Faust's personal page",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladfaust/vladfaust.github.io.git"
+  },
+  "author": "Vlad Faust <mail@vladfaust.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/vladfaust/vladfaust.github.io/issues"
+  },
+  "homepage": "https://github.com/vladfaust/vladfaust.github.io#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  }
+}
