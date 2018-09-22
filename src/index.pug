@@ -17,6 +17,12 @@ html
     meta(property="og:url" content="https://vladfaust.com")
     script(src="bundle.js")
     script(async, src="https://c6.patreon.com/becomePatronButton.bundle.js")
+    script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-87763635-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-87763635-1');
   body
     div.bar
     h1.top My name is Vlad Faust
