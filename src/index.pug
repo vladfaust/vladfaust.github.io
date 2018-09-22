@@ -1,3 +1,8 @@
+- var color = require("./settings.json").color;
+- var stars = function (username, repo) {
+-   return `https://img.shields.io/badge/dynamic/json.svg?label=star&url=https%3A%2F%2Fapi.github.com%2Frepos%2F${username}%2F${repo}&query=%24.stargazers_count&style=flat-square&colorA=black&colorB=${color}&maxAge=86400`
+- };
+
 doctype html
 html
   head
@@ -34,17 +39,17 @@ html
       li
         a(href="https://github.com/vladfaust/prism")
           span.title Prism
-          img(src="https://img.shields.io/github/stars/vladfaust/prism.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "prism"))
         |  an expressive web framework with typed params
       li
-        a(href="https://github.com/vladfaust/core.cr")
+        a(href="https://github.com/vladfaust/core")
           span.title Core
-          img(src="https://img.shields.io/github/stars/vladfaust/core.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "core"))
         | an expressive modular ORM
       li
         a(href="https://github.com/vladfaust/crystalworld")
           span.title Crystal World
-          img(src="https://img.shields.io/github/stars/vladfaust/crystalworld.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "crystalworld"))
         span
           | the&nbsp;
           a(href="https://realworld.io") realworld.io
@@ -58,27 +63,27 @@ html
       li
         a(href="https://github.com/vladfaust/migrate.cr")
           span.title Migrate
-          img(src="https://img.shields.io/github/stars/vladfaust/migrate.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "migrate.cr"))
         |  a database migration solution
       li
         a(href="https://github.com/vladfaust/validations.cr")
           span.title Validations
-          img(src="https://img.shields.io/github/stars/vladfaust/validations.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "validations.cr"))
         |  a validations mixin
       li
         a(href="https://github.com/vladfaust/callbacks.cr")
           span.title Callbacks
-          img(src="https://img.shields.io/github/stars/vladfaust/callbacks.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "callbacks.cr"))
         |  the expressive callbacks module
       li
         a(href="https://github.com/vladfaust/cake-bake.cr")
           span.title Cake-Bake
-          img(src="https://img.shields.io/github/stars/vladfaust/cake-bake.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "cake-bake.cr"))
         |  an utility shard to bake Cakefile (just like Rake tasks) into binaries
       li
         a(href="https://github.com/vladfaust/tarantool-crystal")
           span.title Tarantool
-          img(src="https://img.shields.io/github/stars/vladfaust/tarantool-crystal.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "tarantool-crystal"))
         span
           |  the&nbsp;
           a(href="https://tarantool.io") tarantool
@@ -86,24 +91,24 @@ html
       li
         a(href="https://github.com/vladfaust/http-multiserver.cr")
           span.title HTTP::Multiserver
-          img(src="https://img.shields.io/github/stars/vladfaust/http-multiserver.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "http-multiserver.cr"))
         |  an utility shard to map web applications
       li
         a(href="https://github.com/vladfaust/i18n.cr")
           span.title I18n
-          img(src="https://img.shields.io/github/stars/vladfaust/i18n.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "i18n.cr"))
         |  an internationalization shard
       li
         a(href="https://github.com/vladfaust/time_format.cr")
           span.title TimeFormat
-          img(src="https://img.shields.io/github/stars/vladfaust/time_format.cr.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "time_format.cr"))
         |  a shard to humanize time spans
     h2 Non-crystal projects:
     ul.projects
       li
         a(href="https://github.com/vladfaust/unity-wakatime")
           span.title Unity Wakatime
-          img(src="https://img.shields.io/github/stars/vladfaust/unity-wakatime.svg?style=flat-square&label=star&colorA=black&colorB=0a83d8&maxAge=86400")
+          img(src=stars("vladfaust", "unity-wakatime"))
         |  a Unity Wakatime integration (C#)
       li
         a(href="http://xgm.guru/p/ufs") UFS Arena

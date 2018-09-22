@@ -1,6 +1,7 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var jsonImporter = require('node-sass-json-importer');
 
 module.exports = {
   mode: 'production',
@@ -15,7 +16,12 @@ module.exports = {
       use: [
         "style-loader",
         "css-loader",
-        "sass-loader"
+        {
+          loader: "sass-loader",
+          options: {
+            importer: jsonImporter()
+          }
+        }
       ]
     }, {
       test: /\.pug$/,
