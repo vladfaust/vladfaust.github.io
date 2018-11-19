@@ -44,20 +44,18 @@ html
     h2 My Crystal projects:
     ul.projects
       li
-        a(href="https://github.com/atomframework/atom")
-          span.title ⚛️ Atom
-          img(src=stars("atomframework", "atom"))
-        | 🚧 WIP 🚧 tiny yet powerful web framework
+        a(href="https://github.com/atomframework")
+          span.title Atom Framework
+        span.wip (WIP)
+        |  powerful framework for modern applications
       li
-        a(href="https://github.com/atomframework/web")
-          span.title ⚛️ Atom::Web
-          img(src=stars("atomframework", "web"))
-        | a collection of components to build Action-View frameworks
+        a(href="https://crystaljobs.org")
+          span.title Crystal Jobs
+        | the perfect place to find a Crystal developer
       li
-        a(href="https://github.com/atomframework/model")
-          span.title ⚛️ Atom::Model
-          img(src=stars("atomframework", "model"))
-        | an expressive SQL ORM
+        a(href="https://forum.crystalcommunity.org")
+          span.title Crystal Community Forum
+        | a place to speak with other Crystallers
       li
         a(href="https://github.com/vladfaust/crystalworld")
           span.title Crystal World
@@ -66,12 +64,17 @@ html
           | the&nbsp;
           a(href="https://realworld.io") realworld.io
           |  back-end API implementation in Crystal
-      li
-        a(href="https://crystaljobs.org")
-          span.title Crystal Jobs
-        | the perfect place to find a Crystal developer
-    h2 My MIT Crystal shards:
+    h2 My open-source Crystal shards:
     ul.projects
+      li
+        a(href="https://github.com/vladfaust/stripe.cr")
+          span.title Stripe
+          img(src=stars("vladfaust", "stripe.cr"))
+        span
+          span.wip (WIP)
+          |  the&nbsp;
+          a(href="https://stripe.com/") Stripe
+          |  API wrapper
       li
         a(href="https://github.com/vladfaust/migrate.cr")
           span.title Migrate
@@ -98,7 +101,7 @@ html
           img(src=stars("vladfaust", "tarantool.cr"))
         span
           |  the&nbsp;
-          a(href="https://tarantool.io") tarantool
+          a(href="https://tarantool.io") Tarantool
           |  database driver
       li
         a(href="https://github.com/vladfaust/http-multiserver.cr")
