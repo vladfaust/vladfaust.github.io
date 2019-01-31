@@ -1,6 +1,6 @@
 - var color = require("./settings.json").color;
 - var stars = function (username, repo) {
--   return `https://img.shields.io/badge/dynamic/json.svg?label=star&url=https%3A%2F%2Fapi.github.com%2Frepos%2F${username}%2F${repo}&query=%24.stargazers_count&style=flat-square&colorA=black&colorB=${color}&maxAge=86400`
+-   return `https://img.shields.io/badge/dynamic/json.svg?label=star&url=https%3A%2F%2Fapi.github.com%2Frepos%2F${username}%2F${repo}&query=%24.stargazers_count&style=flat-square&colorA=black&colorB=red&maxAge=86400`
 - };
 
 doctype html
