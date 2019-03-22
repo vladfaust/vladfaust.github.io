@@ -143,8 +143,15 @@
       grid-column-gap: 2rem
       grid-template-columns: 1fr 2.25fr
 
+      @media (max-width: 768px)
+        grid-row-gap: 2rem
+        grid-template-columns: 1fr
+
       .img-wrapper
         +center
+
+        @media (max-width: 768px)
+          display: none
 
         img
           width: 100%
@@ -154,6 +161,9 @@
     .wrapper
       +center
       flex-direction: column
+
+    .title
+      text-align: center
 
     .list
       display: grid
@@ -165,10 +175,17 @@
       margin-top: 1rem
       padding: 0
 
+      @media (max-width: 768px)
+        grid-template-columns: 1fr
+        grid-template-rows: unset
+
   section.shards
     .wrapper
       +center
       flex-direction: column
+
+    .title
+      text-align: center
 
     .list
       display: grid
@@ -178,10 +195,16 @@
 
       margin-top: 2.5rem
 
+      @media (max-width: 768px)
+        grid-template-columns: 1fr
+
   section.patrons
     .wrapper
       +center
       flex-direction: column
+
+    .title
+      text-align: center
 
     .button img
       height: 3rem
