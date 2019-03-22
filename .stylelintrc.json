@@ -30,7 +30,7 @@
     "number-leading-zero": "always",
     "function-url-quotes": "always",
     "font-weight-notation": "named-where-possible",
-    "font-family-name-quotes": "always-where-recommended",
+    "font-family-name-quotes": "always-unless-keyword",
     "comment-whitespace-inside": "always",
     "at-rule-no-vendor-prefix": true,
     "rule-empty-line-before": [
