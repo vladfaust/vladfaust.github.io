@@ -374,11 +374,207 @@ TODO: Example on macros.
 Simple macros.
 Breakpoints in compile-time, code generation based on external configurations, e.g. of ORM models from SQL migration files.
 
+Another fundamental feature of Onyx is macros.
+Macro is a Lua code generating Onyx code (or another macro code).
+Yes, recursive macros are allowed, but more on that later.
+
+Let's examine a very simple macro example.
+
+```text
+import "stdio.h"
+
+export void main() {
+  &#123;% for i = 0, 2 do %}
+    unsafe! $puts("i = &#123;{ i }}")
+  &#123;% end %}
+}
+```
+
+The code above would expand **exactly** to:
+
+```text
+import "stdio.h"
+
+export void main() {
+  unsafe! $puts("i = 0")
+  unsafe! $puts("i = 1")
+  unsafe! $puts("i = 2")
+end
+```
+
+That simple: the Lua code runs during compilation.
+And this is not some truncated version of Lua, no.
+This is a fully-fledged dynamic language, right within your compilation context.
+Think of reading and parsing files during compilation, accessing system configuration...
+The possibilities are endless.
+
+You may concern about safety of macros.
+Well, yes, you have to trust the code you run.
+You do trust C libraries you link to your programs, right?
+
+However, you won't trust an NPM package, because an NPM package author does not care about their reputation, and because NPM does not have auditing features.
+This is the Open-Source sustainability problem addresses in the [previous article]((/posts/2019-08-01-system-programming-in-2k20)) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
+
+As a result, given that you do have access to code you require, authors of packages your program depends on are properly rewarded for their work, and the Foundation sponsors audition of selected packages, you should be safe.
+
+----
+
+Back to the possibilities.
+Macro use-cases include:
+
+**Delegating computations to compile time.**
+
+For example, you can compute a Fibonacci number sequence in a macro, and output the result right into the code.
+Let's examine the following small snippet:
+
+```text
+&#123;%
+  -- Local context is preserved
+  -- during this file compilation
+  local function fib(n)
+    local function inner(m)
+      if m < 2 then
+        return m
+      end
+
+      return inner(m - 1) + inner(m - 2)
+    end
+
+    return inner(n)
+  end
+%}
+
+# This is a macro "function", which
+# may be used directly from Onyx code.
+macro @fib(n)
+  &#123;{ fib(n) }}
+end
+
+import "stdio.h"
+
+export void main() {
+  unsafe! $printf(&"%d\n", @fib(10))
+end
+```
+
+In this example, `@fib(10)` would evaluate during compilation and emit a number literal `55`, so the code turns into simple `$printf(&"%d\n", 55)`.
+
+Of course, this would increase compilation times, and it is your responsibility to find the right balance based on your needs.
+
+**Generating ORM models from SQL migration files.**
+
+This is how it might look like:
+
+```text
+&#123;%
+  -- Lots of compilation context information
+  -- is available in the global `nx` table
+  local model_name =
+    string.match(nx.file.path,
+      "^.+/(.+).nx$"))
+
+  local db_path = os.getenv("DB_PATH")
+
+  -- Builds "create_user" for "user.nx" file
+  local migration_file_path =
+    db_path .. "/create_" ..
+      model_name .. ".sql"
+
+  -- Requiring works as usual, so you may
+  -- make use of Lua packages, even those
+  -- with native C bindings!
+  local myparser = require("src/sqlorm.lua")
+
+  -- Begin emitting Onyx code
+  nx.emit("class User\n")
+
+  -- Emit a field defintion per column parsed
+  local function callback(field) do
+    nx.emit("let " .. field.name ..
+      " : " .. field.type .. "\n")
+  end
+
+  myparser.parse(
+    migration_file_path,
+    callback)
+%}
+```
+
+**Generating code based on current compilation target.**
+
+For example:
+
+```text
+&#123;% if nx.target.isa.id == "amd64" then %}
+  $printf("This is amd64")
+&#123;% else %}
+  $printf("This is not amd64")
+&#123;% end %}
+```
+
+**Having different traits for different specializations.**
+
+For example, there is `Int&lt;Base: ~ \%n, Signed: ~ \%b, Bitsize: ~ \%n>` type in the Core API representing an integer.
+
+Based on the value of `Base` and `Signed` generic arguments, the actual code generated for, say, summation function, would call for different instructions for signed and unsigned integers.
+
+It may look like this:
+
+```text
+reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
+  impl ~Real:add(another : self) throws Overflow
+    final result = unsafe! uninitialized self
+    final overflowed? = unsafe! uninitialized Bit
+
+    \&#123;%
+      local s = nx.scope.S.val and "s" or "u"
+      local t = "i" .. nx.scope.Z.val
+    %}
+
+    unsafe! asm
+    template llvm
+      %res = call {\\&#123;{ t }}, i1} @llvm.\\&#123;{ s }}add.\
+      with.overflow.\\&#123;{ t }}(\\&#123;{ t }} $0, \\&#123;{ t }} $1)
+      $2 = extractvalue {\\&#123;{ t }}, i1} %res, 1
+    in r(this), r(another)
+    out =r(overflowed?)
+    end
+
+    if overflowed?
+      throw Overflow()
+    else
+      unsafe! asm
+      template llvm
+        $0 = extractvalue {\\&#123;{ t }}, i1} %res, 0
+      out =r(result)
+      end
+
+      return result
+    end
+  end
+end
+```
+
+This is a fairly complex example making use of inline assembly feature.
+But this is what the language is capable of.
+
+Notice that delayed macro blocks, i.e. those beginning with `\&#123;{`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int&lt;Base: 2, Signed: true, Bitsize: 16>` (a.k.a. `SBin16`) and `Int&lt;Base: 2, Signed: false, Bitsize: 32>` (a.k.a. `UBin32`).
+
+----
+
+I could continue digging into Onyx features and examples, but for an introductory post that should be enough.
+
+However, a good language by itself is only a half successfull endeavour.
+Any new language needs a good foundation ensuring growth of its ecosystem.
+This is where the Onyx Software Foundation comes into play.
+
 ## The Onyx Software Foundation
 
 TODO: List all the standards.
 Official standard development process with RFSs, voting, community champions.
 Canonical package hosting platform with built-in funding based on the source-on-demand model.
+Funding projects related to or written in Onyx, including teaching materials.
+Sponsoring conferences.
 
 <!-- TODO: Link the system programming article for justification.
 

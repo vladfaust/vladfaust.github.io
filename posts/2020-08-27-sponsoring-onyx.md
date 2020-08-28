@@ -105,7 +105,7 @@ Would you dare to calculate the amount of sleepless hours I've spent on _thinkin
 ![](../../../public/img/posts/2020-08-27-sponsoring-onyx/some-notebooks-1.png "A pile of three notebooks" =49%x)
 ![](../../../public/img/posts/2020-08-27-sponsoring-onyx/some-notebooks-2.png "Contents of one of the notebooks" =49%x)
 
-### Time Rracked in Real... Time
+### Time Tracked in Real... Time
 
 [WakaTime](https://wakatime.com/) is awesome, because it allows to embed recent coding statistics, so you can see how much I <s>wasted my youth</s> coded during the last 30 days!
 
