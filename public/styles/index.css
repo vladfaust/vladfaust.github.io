@@ -1,0 +1,43 @@
+@import './common.css';
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.posts {
+  /* list-style: none; */
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.posts li {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 0.5rem;
+}
+
+.posts .date {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0;
+  }
+
+  .posts {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
+
+  .posts .date {
+    display: none;
+  }
+
+  .posts li {
+    display: list-item;
+  }
+}

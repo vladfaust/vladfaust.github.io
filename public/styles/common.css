@@ -1,0 +1,11 @@
+@import './header.css';
+@import './footer.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-size: 1.2em;
+  font-family: 'Vollkorn', serif;
+  width: 100%;
+}

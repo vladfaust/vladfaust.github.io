@@ -1,0 +1,171 @@
+@import './common.css';
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+main > h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 50rem;
+}
+
+@media (max-width: 768px) {
+  main > h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+main > .meta {
+  font-style: italic;
+}
+
+main > h1, main > .meta {
+  text-align: center;
+}
+
+main > hr {
+  border: none;
+  height: 1px;
+  background-color: lightgray;
+  width: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+article {
+  max-width: 35rem;
+}
+
+article .secret-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* article .external-link:not(.secret-link)::after {
+  content: " " url('/public/icon/external-link.svg');
+  zoom: .6;
+} */
+
+main > h1,
+main > .meta,
+article > p,
+article > h2,
+article > h3,
+article > h4,
+article > h5,
+article > h6
+{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.off {
+  padding: 1px 1rem;
+  background-color: rgba(0, 0, 0, 0.025);
+  border: 1px solid lightgray;
+  border-left: none;
+  border-right: none;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero big {
+  font-size: 2em;
+}
+
+blockquote {
+  width: calc(100% - 2rem - 2rem);
+  border-left: 5px solid lightgray;
+  padding: 1px 0;
+  padding-left: calc(2rem - 5px);
+  padding-right: 2rem;
+  margin-left: 0rem;
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+pre[class*="language-"] {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.15);
+  /* padding: 0 0.25rem; */
+}
+
+details {
+  max-width: 100vw;
+  margin-top: 1rem;
+}
+
+details[open] .spoiler-content {
+  box-sizing: border-box;
+  padding: 1px 1rem;
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+summary {
+  margin-bottom: 1rem;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+  text-align: center;
+}
+
+article hr {
+  border: none;
+  height: 1px;
+  background-color: lightgray;
+  width: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+nav.table-of-contents ol {
+  /* Would still begin from 1 on Chrome =( */
+  /* counter-reset: list-item 0; */
+
+  counter-reset: list-item -1;
+  counter-increment: list-item 1;
+}
+
+nav.table-of-contents ol li {
+  display: block;
+  counter-increment: list-item 1;
+}
+
+nav.table-of-contents ol li:before {
+  content: counters(list-item, '.') '. ';
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100vw;
+}
+
+table {
+  border-spacing: 0;
+}
+
+th, td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
