@@ -410,7 +410,7 @@ Nowadays, a senior iOS developer in Russia has a salary of about $4'000 (300'000
 
 At the best times, my salary as an Open-Source engineer was pathetic $70.
 
-![Earnings BEFORE TAX](/public/img/posts/2019-08-17-on-open-source-sustainability/patreon-income.png "A Patreon income graph with an extremum of $70" =100%x)
+![Earnings BEFORE TAX](/public/img/posts/2020-08-16-system-programming-in-2k20/patreon-income.png "A Patreon income graph with an extremum of $70" =100%x)
 
 I did receive some "tokens of appreciation" from companies a couple of times, but those were not regular and I could certainly not have a decent living even with them.
 
