@@ -7,7 +7,7 @@ ogType: article
 ---
 
 Standardizing and implementing a system programming language is hard, but you can help!
-Find out how you can sponsor the future, and many hours does it take to create a language mascot, in this post.
+Find out how you can sponsor the future, and how many hours does it take to create a language mascot, in this post.
 
 <h2>TL; DR;</h2>
 
@@ -32,7 +32,7 @@ By the way, I assume you've read my recent [post on System Programming](/posts/2
 
 ## Deeds Already Done
 
-The onyxlang.com domain name was registered on June 20^th^ 2019.
+The onyxlang.org domain name was registered on June 20^th^ 2019.
 As I have a sin of registering domains as soon as I have a solid idea, the day may be treated as the Onyx birthday.
 
 Today is August 27^th^ 2020, and I've already spent a plethora of time on Onyx.
@@ -134,7 +134,7 @@ Nothing is publicly stable, work-in-progress etcetera.
 
 Note that theoretically I could've tried applying to Open Collective right now, but:
 
-  1. It implies free-will donations, but what I'm proposing here is clearly purchase of placement in history;
+  1. It implies free-will donations, but what I'm proposing here is clearly a purchase;
 
   1. I don't think Onyx is currently "popular" enough;
 
@@ -149,7 +149,7 @@ And as I haven't got a real job for a long, long time, my financial cushion is r
 
 As a copyright holder, I'm planning on licensing the Onyx Standard Specification and auxiliary standards with a free, open-source license requiring attribution.
 
-Therefore, I can offer you, a potential sponsor, a **perpetual**\* attribution in the standards I'll be working on during the pre-alpha development stage.
+Therefore, I can offer you, a potential sponsor, a **perpetual**\* attribution in the standards I'll be working on <u>during the pre-alpha development stage</u>.
 Your name or company logo with an optional link would be put into according "early contributors" sections of the standards.
 
 \* As long as my attribution is required.

@@ -81,6 +81,7 @@ This is a very basic program written in Onyx:
 ```text
 import "stdio.h"
 
+# Outputs "Hello, world!"
 export int main() {
   final msg = "Hello, world!\0"
   unsafe! $puts(&msg as $char*)
@@ -100,6 +101,7 @@ Imported entities are referenced with preceding `$` symbol to distinguish them f
 
 The `final` statement defines a constant named `msg`.
 The type of `msg` is inferred to be `String<UTF8, 14>`, i.e. a [UTF-8](https://en.wikipedia.org/wiki/UTF-8)-encoded array of [code units](https://en.wikipedia.org/wiki/Code_unit) containing 14 elements.
+Note that this is not a pointer, but a real array, probably allocated on stack.
 
 Then, the address of the `msg` constant is taken.
 The resulting object of taking an address would be `String<UTF8, 14>*lr0`, which is a shortcut to `Pointer<Type: String<UTF8, 14>, Scope: :local, Readable: true, Writeable: false, Space: 0>`.
@@ -122,7 +124,7 @@ But in return, it makes the emitted code predictable and portable.
 
 #### Using a standard library
 
-An Onyx compiler is not required to implement any sort of OS-specific standard library.
+An Onyx compiler is not required to implement any sort of OS-dependent standard library.
 Instead, the standard library Standard is specified elsewhere (spoiler alert: by [the Onyx Software Foundation](#the-onyx-software-foundation)).
 
 A standard library ought to be used as a typical package and required like any other from your code.
@@ -145,9 +147,10 @@ export void main() {
 ```
 
 Now, the code is perfectly safe.
-Even passing of `&msg` is allowed, because `Std.puts` has an overload accepting a `String*cr`, i.e. a read-only pointer with _caller_ scope, and a pointer with _local_ scope may be safely cast to _caller_ scope upon passing to a function!
+Even passing of `&msg` is allowed, because `Std.puts` has an overload accepting a `String*cr`, i.e. a read-only pointer with _caller_ scope, and a pointer with _local_ scope may be safely cast to _caller_ scope upon passing to a function.
+This is where the full power of pointer scope harnesses!
 
-Also note that `msg` is now a variable, as it is defined with `let` statement.
+Also note that `msg` is now a **variable** instead of a constant, as it is defined with `let` statement.
 Taking the address of `msg` would return `String<UTF8, 14>*lrw0`.
 Notice the `w` part?
 The pointer is now writeable.
@@ -160,7 +163,7 @@ The cause is that an `export`ed function must guarantee never to throw an except
 The `Std.exit` function is declared as `nothrow`, so we can leave it as-is.
 
 But what if we wanted to inspect the backtrace of the possible exception?
-Well, the language Standard states that a backtrace object must implement `Endful<Location>` trait.
+Well, the language Standard states that a backtrace object must implement the `Endful<Location>` trait.
 This is truncated source code of the trait:
 
 ```text
@@ -178,7 +181,7 @@ end
 
 Let's implement some `Stack` type to hold the backtrace.
 
-::: spoiler ⚠️ A big chunk of code!
+::: spoiler ⚠️ A big chunk of non-trivial code!
 
 ```text
 # A stack growing upwards in memory.
@@ -352,7 +355,8 @@ export int main () {
     while final loc = backtrace.pop?()
       Std.cout << "At " <<
         loc.path << ":" <<
-        loc.row << ":" << "\n"
+        loc.row << ":" <<
+        loc.col << "\n"
     end
 
     Std.exit(1)
@@ -516,7 +520,7 @@ require "gen_class"
 @gen_class("user")
 ```
 
-Which would result in:
+Which would possibly result in:
 
 ```text
 require "gen_class"
@@ -535,6 +539,7 @@ end
 
 :::
 
+Nuff said.
 For example:
 
 ```text
@@ -594,12 +599,12 @@ reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
 end
 ```
 
-This is a fairly complex example making use of inline assembly feature.
+This is a fairly complex example making use of the inline assembly feature.
 But this is what the language is capable of.
 
 Notice that delayed macro blocks, i.e. those beginning with `{{`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int<Base: 2, Signed: true, Size: 16>` (a.k.a. `SBin16`) and `Int<Base: 2, Signed: false, Size: 32>` (a.k.a. `UBin32`).
 
-There were other features of Onyx mentioned in the example: 1) reopening certain, even broad (the `forall` thing), specializations, 2) and aliasing.
+There were other features of Onyx mentioned in the example: 1) reopening certain or broad (the `forall` thing), specializations, 2) aliasing.
 In fact, this is how integer aliasing looks like in the Core API:
 
 ```text
@@ -801,7 +806,7 @@ Apart from funding packages, the Foundation will sponsor projects and events rel
 Onyx is the perfect balance between productivity and performance, a language understandable well both by humans and machines.
 
 Thanks to powerful abstraction mechanisms and inference, the areas of the appliance are truly endless.
-I heartfully believe that Onyx may be that new lingua franca for decades until humanity learns to transfer thoughts directly into machines.
+I heartfully believe that Onyx may become a new lingua franca for decades until humanity learns to transfer thoughts directly into machines.
 
 Visit [nxsf.org](https://nxsf.org) to stay updated, and...
 
