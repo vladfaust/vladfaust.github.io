@@ -24,12 +24,12 @@ Onyx is a general-purpose statically typed programming language suitable both fo
 
 Onyx syntax is inspired by **C-family** languages, such as Ruby, C++ and even <s>Rust</s> <small>I'm sorry</small>.
 
-Onyx imposes powerful **inference** mechanisms.
+Onyx imposes robust **inference** mechanisms.
 The rule is generally "infer unless ambiguous", with meaningful defaults.
 
 Onyx is a **memory-safe** language.
 There are multiple levels of enforced safety, with `unsafe` being the minimum safety level allowing for extreme optimizations.
-This opens great opportuinites for powerful abstractions.
+This opens great opportunities for powerful abstractions.
 
 Unlike [_other_](https://www.rust-lang.org/){.secret-link} languages, Onyx treats **pointer arithmetic** as a first-class use-case, but with memory safety.
 The concept is expressed in raw but typed pointers containing a memory scope.
@@ -37,7 +37,7 @@ For example, it is not possible to safely pass a local pointer to an outer scope
 Moreover, pointers preserve low-level features like address spacing and alignment.
 
 It is extremely easy to do **interoperability** in Onyx.
-In fact, Onyx is similar to C++ in this sense: C code is considered a part of the program (with minor differences), and it is simple to export Onyx code as a shared library.
+Onyx is similar to C++ in this sense: C code is considered a part of the program (with minor differences), and it is simple to export Onyx code as a shared library.
 
 Programs written in Onyx are **cross-platform** by default in the sense of that there are no target-dependent features in the language itself: no threading, no memory control.
 But fear not, thanks to powerful abstractions, these are likely to be already implemented by someone else!
@@ -46,17 +46,17 @@ Onyx introduces **powerful macros** written in Lua.
 It allows to re-use existing Lua code and have full access to the compilation context thanks to easy debugging with Lua.
 
 Onyx has **<u>[simple-to-understand](https://twitter.com/vladfaust/status/1299116755596566528){.secret-link}</u> lifetime and moving** concepts naturally built into the language.
-Instead of fighting with a borrow checker, simply get an address of a variable: a compiler would not allow you to mis-use it.
+Instead of fighting with a borrow checker, simply get an address of a variable: a compiler would not allow you to misuse it.
 
 Classes may have a finalizer defined and thus have **automatic resource control**.
 
 Onyx implements real **traits** as [composable units of behaviour](https://en.wikipedia.org/wiki/Trait_(computer_programming)) thanks to powerful function management tools like aliasing, implementation transferring, un-declaring and renaming.
 
-Classes and traits together impose **object-oriented** capatibilites of the language.
+Classes and traits together impose **object-oriented** capabilities of the language.
 
 Onyx has a concept of **generics**.
-Specializations of generic types may have different members, and evaluate delayed macros.
-Specializations of functions with generic arguments may return differnt values and also evaluate delayed macros.
+Specializations of generic types may have different members and evaluate delayed macros.
+Specializations of functions with generic arguments may return different values and also evaluate delayed macros.
 
 Functions may be **overloaded** by arguments and return values.
 
@@ -64,7 +64,7 @@ Onyx has a concept of **annotations**, which may be applied to variables and fun
 
 The language defines a set of now-commonly used **arithmetic types**, including SIMD vectors, matrices and tensors, floating and fixed binary and decimal numbers, brain and tensor floats, ranges and ratios.
 
-Onyx contains a number of **utility types**, such as unions, variants, tuples, anonymous structs, lambdas and runnable blocks of code.
+Onyx contains several **utility types**, such as unions, variants, tuples, anonymous structs, lambdas and runnable blocks of code.
 
 Exceptions are designed to be truly **zero-cost** to enable exception flow in Onyx programs.
 
@@ -91,41 +91,41 @@ In the example, a C header named `"stdio.h"` was imported into the Onyx program.
 Now Onyx is aware of assembly functions declared by this header.
 
 Later on, one of these functions, `puts` is called directly from Onyx.
-An Onyx compiler can not give any safety guarantees in regard to called assembly functions, therefore the call must be wrapped in an `unsafe!` statement.
+An Onyx compiler can not give any safety guarantees about called assembly functions. Therefore the call must be wrapped in an `unsafe!` statement.
 
 If something weird happens, a developer may simply `grep` the program source code for `unsafe!` statement to quickly narrow to potentially hazardous areas of code.
 
 Imported entities are referenced with preceding `$` symbol to distinguish them from those declared in Onyx context.
 
-A constant named `msg` is defined by the `final` statement.
+The `final` statement defines a constant named `msg`.
 The type of `msg` is inferred to be `String<UTF8, 14>`, i.e. a [UTF-8](https://en.wikipedia.org/wiki/UTF-8)-encoded array of [code units](https://en.wikipedia.org/wiki/Code_unit) containing 14 elements.
 
-Then, address of the `msg` constant is taken.
+Then, the address of the `msg` constant is taken.
 The resulting object of taking an address would be `String<UTF8, 14>*lr0`, which is a shortcut to `Pointer<Type: String<UTF8, 14>, Scope: :local, Readable: true, Writeable: false, Space: 0>`.
 
 Do not be intimidated, though!
-Thanks to inference, shortucts and meaningful defaults, you'll rarely have to use full types.
+Thanks to inference, shortcuts and meaningful defaults, you'll rarely have to use full types.
 
 The pointer to `msg` is then coerced to C type `char*`.
-Such a coercion would be unsafe, and a compiler would normally panic.
+Such coercion would be unsafe, and a compiler would typically panic.
 
-However, the coercion is already within unsafe context itself thanks to the wrapping `unsafe!` statement.
+However, the coercion is already within the unsafe context itself thanks to the wrapping `unsafe!` statement.
 No need to write `unsafe!` again.
 
 The program above is normally compiled by an Onyx compiler, such as [`fnxc`](https://github.com/fancysofthq/fnxc), into an object file.
-The object file declares the exported `int main(void)` prototype, which must be pointed to at as a entry function by a system linker.
+The object file declares the exported `int main(void)` prototype, which must be pointed to at as an entry function by a system linker.
 Thankfully, this tedious operation is likely to be automatically handled by a higher-level build tool, such as [`fnx`](https://github.com/fancysofthq/fnx).
 
 Note that Onyx does not have any implicit `__onyx_main` function, which effectively restricts non-trivial automatic static variable initialization and finalization.
-But in return it makes the emitted code predictable and portable.
+But in return, it makes the emitted code predictable and portable.
 
 #### Using a standard library
 
 An Onyx compiler is not required to implement any sort of OS-specific standard library.
 Instead, the standard library Standard is specified elsewhere (spoiler alert: by [the Onyx Software Foundation](#the-onyx-software-foundation)).
 
-A standard library is ought to be used as a common package and required as any other from your code.
-Again, by default an Onyx program does not depend on any OS-specific features.
+A standard library ought to be used as a typical package and required like any other from your code.
+Again, by default, an Onyx program does not depend on any OS-specific features.
 
 The example above could be abstracted into this when using a standard library implementation:
 
@@ -144,10 +144,10 @@ export void main() {
 ```
 
 Now, the code is perfectly safe.
-Even passing of `&msg` is allowed, because `Std.puts` has an overload accepting a `String*cr`, i.e. a read-only pointer with _caller_ scope, and a pointer with _local_ scope may be safely cast to to _caller_ scope upon passing to a function!
+Even passing of `&msg` is allowed, because `Std.puts` has an overload accepting a `String*cr`, i.e. a read-only pointer with _caller_ scope, and a pointer with _local_ scope may be safely cast to _caller_ scope upon passing to a function!
 
 Also note that `msg` is now a variable, as it is defined with `let` statement.
-Taking address of `msg` would return `String<UTF8, 14>*lrw0`.
+Taking the address of `msg` would return `String<UTF8, 14>*lrw0`.
 Notice the `w` part?
 The pointer is now writeable.
 And it is perfectly legit to pass a writeable pointer as a read-only argument: it would be coerced down to a read-only pointer within the callee.
@@ -155,12 +155,12 @@ And it is perfectly legit to pass a writeable pointer as a read-only argument: i
 #### Exceptions
 
 We had to wrap the `Std.puts` call into the `try` block, as it could throw some system exception.
-The cause is that an `export`ed function must guarantee to never throw an exception, that's why we wrapped it.
+The cause is that an `export`ed function must guarantee never to throw an exception, that's why we wrapped it.
 The `Std.exit` function is declared as `nothrow`, so we can leave it as-is.
 
 But what if we wanted to inspect the backtrace of the possible exception?
 Well, the language Standard states that a backtrace object must implement `Endful<Location>` trait.
-This is a truncated source code of the trait:
+This is truncated source code of the trait:
 
 ```text
 struct Location
@@ -312,14 +312,14 @@ Now we can inspect the exception backtrace!
 
 #### An HTTP server example
 
-It is considred a good tone to demonstrate on how to build a simple echoing HTTP web server in your language.
+It is considered a good tone to demonstrate how to build a simple echoing HTTP web server in your language.
 This would also be my "sorry" for the big-ass `Stack` implementation above.
 
 The thing is that running a web server is architecturally different on different target platforms.
 An implementation on Linux could make use of raw sockets, an implementation on Windows could make use of the win32 `"http.h"` header etc.
 
 Therefore, the standard library would not contain a web server implementation.
-Instead, some third-party package should be used, which would inevitably be a plenty of!
+Instead, some third-party package should be used, which would inevitably be plenty of!
 
 Let's imagine we've found one satisfying our needs.
 That's how it could look like:
@@ -362,7 +362,7 @@ export int main () {
 }
 ```
 
-Thanks to powerful abstractions and type inference, you won't need to manualy use `socket` each time you want to spin up a web server on Linux!
+Thanks to powerful abstractions and type inference, you won't need to manually use `socket` each time you want to spin up a web server on Linux!
 
 Oh, by the way, did you notice the `\@{{ e }}` thing?
 It was me, <s>Dio</s> macro!
@@ -370,10 +370,10 @@ It was me, <s>Dio</s> macro!
 #### Macros
 
 A fundamental feature of Onyx is macros.
-Macro is basically a Lua code generating Onyx code (or another macro code).
+Macro is a Lua code generating Onyx code (or another macro code).
 Yes, recursive macros are allowed, but more on that later.
 
-Let's examine a very simple macro example.
+Let's examine a straightforward macro example.
 
 ```text
 import "stdio.h"
@@ -403,14 +403,14 @@ This is a fully-fledged dynamic language, right within your compilation context.
 Think of reading and parsing files during compilation, accessing system configuration...
 The possibilities are endless.
 
-You may concern about safety of macros.
+You may concern about the safety of macros.
 Well, yes, you have to trust the code you run.
 You do trust C libraries you link to your programs, right?
 
 However, you won't trust an NPM package, because an NPM package author does not care about their reputation, and because NPM does not have auditing features.
 This is the Open-Source sustainability problem addresses in the [previous article]((/posts/2020-08-16-system-programming-in-2k20)) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
 
-As a result, given that you do have access to code you require, authors of packages your program depends on are properly rewarded for their work, and the Foundation sponsors audition of selected packages, you should be safe.
+As a result, given that you do have access to code you require, authors of packages your program depends on are appropriately rewarded for their work, and the Foundation sponsors audition of selected packages, you should be safe.
 
 ----
 
@@ -419,7 +419,7 @@ Macro use-cases include:
 
 ::: hero
 
-**Delegating computations to compile time**
+**Delegating computations to compile-time**
 
 :::
 
@@ -715,7 +715,7 @@ This means that you can debug your compilation, even with breakpoints from an ID
     @assert(@sizeof(c) == 4)
     ```
 
-  * Distinct aliasing allows to have a type with different methods, but the same layout.
+  * Distinct aliasing allows having a type with different methods, but the same layout.
   For example, the `String` type is a distinct alias to an array of codeunits:
 
     ```text
@@ -731,21 +731,21 @@ This means that you can debug your compilation, even with breakpoints from an ID
 
 ----
 
-I could continue digging into Onyx features and examples, but for an introductory post that should be enough.
+I could continue digging into Onyx features and examples, but for an introductory post, that should be enough.
 
-However, a good language by itself is only a half successfull endeavour.
-Any new language needs a good foundation ensuring growth of its ecosystem.
+However, a good language by itself is only a half successful endeavour.
+Any new language needs a good foundation, ensuring the growth of its ecosystem.
 This is where the Onyx Software Foundation comes into play.
 
 ## The Onyx Software Foundation
 
-The Onyx Software Foundation (NXSF) is to be an official 501 \(c\) non-profit organization, so donations made to it are tax-excemptive.
+The Onyx Software Foundation (NXSF) is to be an official 501 \(c\) non-profit organization, so donations made to it are tax-exemptive.
 
 All NXSF processes are going to be transparent and open.
 
 ### Standards
 
-The Foundation will be governing a number of major and auxillary standard specifications related to Onyx:
+The Foundation will be governing several major and auxiliary standard specifications related to Onyx:
 
   1. [The Onyx Programming Language Specification](https://github.com/nxsf/onyx).
   The specification includes the following:
@@ -770,7 +770,7 @@ The Foundation will be governing a number of major and auxillary standard specif
   This includes versioning algorithms and, for example, requiring third-party auditions.
 
   1. The Onyx Compiler Interface Specification.
-  So different compiler implementations had unified interface to interact with, using DSON.
+  So different compiler implementations had a unified interface to interact with, using DSON.
 
   1. [Dead-Simple Object Notation (DSON) Specification](https://github.com/nxsf/dson).
   This format is intended to be used in CLI to describe complex object structures.
@@ -778,8 +778,8 @@ The Foundation will be governing a number of major and auxillary standard specif
   1. [DSON Schema Specification.](https://github.com/nxsf/dson-schema)
   The standard to describe objects in DSON.
 
-Standardization process will be official, with responsible committees consiting of community-elected members called _community champions_, and businesses sponsoring the Foundation.
-The votes will be split evenly between community and businesses to fairly represent both sides.
+Standardization process will be official, with responsible committees consisting of community-elected members called _community champions_, and businesses sponsoring the Foundation.
+The votes will be split evenly between community and businesses to represent both sides fairly.
 
 ### Package Hosting
 
@@ -799,8 +799,8 @@ Apart from funding packages, the Foundation will sponsor projects and events rel
 
 Onyx is the perfect balance between productivity and performance, a language understandable well both by humans and machines.
 
-Thanks to powerful abstraction mechanisms and inference, the areas of appliance are truly endless.
-I heartfully believe that Onyx may be that new lingua franca for decades until the humanity learns to transfer thoughts directly into machines.
+Thanks to powerful abstraction mechanisms and inference, the areas of the appliance are truly endless.
+I heartfully believe that Onyx may be that new lingua franca for decades until humanity learns to transfer thoughts directly into machines.
 
 Follow [NXSF](https://nxsf.org) to stay updated, and...
 
@@ -814,4 +814,4 @@ Follow [NXSF](https://nxsf.org) to stay updated, and...
 
 ----
 
-P.S: Until the Foundation is officialy established, you may consider [sponsoring me directly]().
+P.S: Until the Foundation is officially established, you may consider [sponsoring me directly](/posts/2020-08-27-sponsoring-onyx/).

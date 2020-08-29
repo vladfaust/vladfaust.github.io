@@ -3,7 +3,7 @@ title: System Programming in 2k20
 location: Moscow, Russia
 ---
 
-System programming is still important, but is seems to be much harder than application programming.
+System programming is still essential, but it seems to be much harder than application programming.
 Why is that and how to overcome this -- these are the questions I'll try to find answers for in this article.
 
 <!-- excerpt -->
@@ -17,25 +17,25 @@ ${toc}
 ## Introduction
 
 A hundred years ago, a person could not imagine to be able to play any musical instrument they want, to create new interactive worlds, or to launch cars into space.
-A life was simply not enough.
+Life was simply not enough.
 
-Then machines came.
+Then the machines came.
 Silicon computations allowed us, mere mortals, prolong our lives virtually and literally.
 
 Music creation software, game development engines, 2D and 3D editors, neural networks, AI and machine learning, motion capturing, navigation, medicine, wearable devices, smartphones...
 Thanks to these, a person now can do a lot of things while having more free time during their lifespan.
 
 It all happened because a human learned to communicate with machines with means of programming languages.
-Early inventors of the future were extremely intelligent people able to coin fundamentally new concepts which last until today.
+Early inventors of the future were brilliant people able to coin fundamentally new concepts which last until today.
 
 But this is the how the humanity evolves: we accumulate knowledge and pack, shortcut it.
-We don't need to keep in head proofs of every mathematical theorem, and we don't need to fully undrestand the nature of an axiom.
+We don't need to keep in head proofs of every mathematical theorem, and we don't need to fully understand the nature of an axiom.
 Instead, we store theorem and axiom statements.
 With that in mind, we have more space to solve new problems.
 
 The same applies to programming.
 Those brilliant people inevitably become old, as real system programming knowledge fades away.
-On the surface, the amount of those who really understands how machines work seems to shrink.
+On the surface, the amount of those who really understand how machines work seems to shrink.
 
 <figure>
   <blockquote class="twitter-tweet" data-lang="en" data-dnt="true">
@@ -61,13 +61,13 @@ System programming is the foundation of the development of the human civilizatio
 :::
 
 Regardless of its importance, system programming seems to be less popular than application programming, because it's known to be harder to both learn and master.
-It is definetely easier to spin up a web server, connect it to a database, set up some Stripe integration, drink smoothie and proudly call yourself an enterpruener.
+It is definitely easier to spin up a web server, connect it to a database, set up some Stripe integration, drink a smoothie and proudly call yourself an entrepreneur.
 
-But that does not invest into the the human civialization's progress on the Kardashov's scale.
+But that does not invest in the human civilization's progress on the Kardashov's scale.
 <mark>The humanity will still depend on system programming in the foreseeable future.</mark>
 And we need new, fresh blood there.
 
-In this article, I'll try to take a peek on the current state of the system programming, find out why it's not that popular and and choose the best system programming language for the Next Big But Fairly-Low-Level Project (tm).
+In this article, I'll try to take a peek on the current state of the system programming, find out why it's not that popular and choose the best system programming language for the Next Big But Fairly-Low-Level Project (tm).
 
 ## Choosing the Right Language
 
@@ -75,15 +75,17 @@ When choosing a serious language for serious system programming, the choice is b
 
 ### C
 
-C is great at its simplicity, but bigger projects require higher level language features, such as [memory control](https://twitter.com/jfbastien/status/1289305925199650816), object hierarchy, lambdas etc.; therefore, C is out of competition here.
+C is excellent at its simplicity, but bigger projects require higher-level language features, such as [memory control](https://twitter.com/jfbastien/status/1289305925199650816), object hierarchy, lambdas etc.; therefore, C is out of competition here.
 
-Ditto applies to C "replacements", such as [Ẕ̴̰̥̔͝i̷̥̣̍̓̉ġ̷̢̪͌̾́](https://ziglang.org/) and [Patreon-lang](https://vlang.io/).
+Ditto applies to C "replacements", such as [Ẕ̴̰̥̔͝i̷̥̣̍̓̉ġ̷̢̪͌̾́](https://ziglang.org/) and [Patreon-lang](https://vlang.io/).
+
 
 ### C++
 
+
 C++ is the grandfather of higher-level system programming.
 
-It offers powerful features with a grain of Unix epoch practices and great amount of undefined behaviour.
+It offers powerful features with a grain of Unix epoch practices and a great amount of undefined behaviour.
 Funnily enough, an experienced C++ programmer shall aware of not what C++ is, but of what it is not, i.e. undefined behaviour of the language.
 
 That said, developing on C++ is pain, and it is easy to shoot your lower parts off by, say, returning a lambda with a closured local variable.
@@ -97,13 +99,13 @@ One may argue that backwards compatibility is a good thing, but let me postpone 
 Rust is a fairly young programming language with a reputable mission: empower everyone to build reliable and efficient software.
 Let's deconstruct the statement.
 
-One of the game-changing features of Rust is separation between safe and unsafe code.
+One of the game-changing features of Rust is the separation between safe and unsafe code.
 The ability to isolate volatile code worths a lot: if anything goes wrong, then you simply `grep` your codebase with `unsafe` filter and voilà -- all the dangerous invocations are at your hand sight.
-It also allows _the_ implementation to perform crazy optimizations, say, by entirely removing parts of code; and it's fine, because there is no unsafe access to that code.
+It also allows _the_ implementation to perform crazy optimizations, say, by entirely removing parts of code; and it's fine because there is no unsafe access to that code.
 As a result, focusing on volatile code becomes easier, and nasty bugs are squashed faster.
 
 Otherwise, _the_ Rust compiler would yell at you, pointing at your mistakes in the safe code area.
-And those yells are detailed enough, so most of the time you have a clean picture on why you're wrong and what to do with that.
+And those yells are detailed enough, so most of the time you have a clear picture on why you're wrong and what to do with that.
 
 Compared to C++, Rust compilation process is much friendlier and catches more bugs before you face them in runtime.
 
@@ -111,7 +113,7 @@ Compared to C++, Rust compilation process is much friendlier and catches more bu
 
 Another good thing about Rust is macros.
 Well, what's good is the idea of macros; the implementation of macros in Rust is um... questionable.
-Nevertheless, macros allow to write code in code with much greater flexibility than with C++ preprocessor and constant expressions.
+Nevertheless, macros allow writing code in code with much greater flexibility than with C++ preprocessor and constant expressions.
 Nuff said, macros are must-have in modern languages.
 
 The built-in crates system Rust has brings powerful abstractions into the ecosystem.
@@ -129,15 +131,17 @@ But, there are always some "but<sub>t</sub>s".
 First of all, only a few may say Rust has friendly syntax.
 In the maniacal pursuit for the absolute memory safety, the language introduces plethora of abstractions such as borrow checker, six string types (hey, we're making a language here, not a guitar), `Mut`, `Box`, `Arc`, `Trait`, requiring to do those ubiquitous `unwrap()`, `as_ref()` and `borrow()` (often chained) literally before every access.
 
-Some may call it "hipster thinking", but those small spikes like mandatory semicolons\*, curly brackets wrapping, and othwerwise unintuitive design decisions like constantly "screaming code" with ubiquitous bangs (`!`) and overloaded documentation semantics — they make writing and reading Rust code harder.
-Definetely harder than Ruby or, say,
-J̸̧̨̹͈̦̏̅͒̈́͂͐̄̾͟͟ͅȃ̡͎̯̟̦͉͂͊̿̈́v̢̡͖͍̻̳̞͌͌̈̋̐͌̆͜a̴͖̱̟̩̹̘̺͊̃̋̇̾̀̀͐̊͐ͅS̶͚̣̥͚͈̥̤͔̾̎̎̿̔͊̋̉̓c̶̡̧̗̻̊̈̋̍̔̂̅̓̚͘͢ŗ̰͖̲̙͖͕̂̏̍͑̊̋ḯ̸̛̤̦̠͈̩̙̯̘̥̖̅́̊̀͑̕͠͠p̸̨̧̨̧̡̛̮̯͖̹͈̉̑̿͛̎̀͌̾͞ț̸̩͕͈̊͐̏̏̕͡ͅ
+Some may call it "hipster thinking", but those small spikes like mandatory semicolons\*, curly brackets wrapping, and otherwise unintuitive design decisions like constantly "screaming code" with ubiquitous bangs (`!`) and overloaded documentation semantics — they make writing and reading Rust code harder.
+Definitely harder than Ruby or, say,
+J̸̧̨̹͈̦̏̅͒̈́͂͐̄̾͟͟ͅȃ̡͎̯̟̦͉͂͊̿̈́v̢̡͖͍̻̳̞͌͌̈̋̐͌̆͜a̴͖̱̟̩̹̘̺͊̃̋̇̾̀̀͐̊͐ͅS̶͚̣̥͚͈̥̤͔̾̎̎̿̔͊̋̉̓c̶̡̧̗̻̊̈̋̍̔̂̅̓̚͘͢ŗ̰͖̲̙͖͕̂̏̍͑̊̋ḯ̸̛̤̦̠͈̩̙̯̘̥̖̅́̊̀͑̕͠͠p̸̨̧̨̧̡̛̮̯͖̹͈̉̑̿͛̎̀͌̾͞ț̸̩͕͈̊͐̏̏̕͡ͅ
 .
 
 
 ::: off
 
-\* In fact, semicolons are not mandatory _everywhere_, which brings even more confusion.
+\* In fact, semicolons are not mandatory
+_everywhere_
+, which brings even more confusion.
 
 From [StackOverflow](https://stackoverflow.com/questions/26665471/are-semicolons-optional-in-rust):
 
@@ -149,9 +153,9 @@ From [StackOverflow](https://stackoverflow.com/questions/26665471/are-semicolons
 
 A [wise man](https://en.wikipedia.org/wiki/Jason_Statham){.secret-link} once said:
 
-> The complexity of a language feature is proportional to the amount of articles explaining the feature.
+> The complexity of a language feature is proportional to the number of articles explaining the feature.
 
-Here goes a tiny fraction of reads on why Rust is not even nearly to an intuitive language:
+Here go a tiny fraction of reads on why Rust is not even nearly to an intuitive language:
 
   1. [Common Rust Lifetime Misconceptions](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md)
 
@@ -240,10 +244,10 @@ Now, instead of keeping in mind of where C++ might blow, one shall be aware all 
 That said, the "for everyone" clause in the mission statement seems unfair to me now.
 It takes great effort to become fluent in Rust.
 
-Regarding to other two clauses in the Rust's mission, I still have no claims on them.
-Rust programs are known to be fairly performant (<small>if you ever manage to wait until `rustc` compiles with optimizations turned on</small>), and there is even the academia-grade [RustBelt](https://plv.mpi-sws.org/rustbelt/) organization ensuring the UB-safety.
+Regarding other two clauses in the Rust's mission, I still have no claims on them.
+Rust programs are known to be reasonably performant (<small>if you ever manage to wait until `rustc` compiles with optimizations turned on</small>), and there is even the academia-grade [RustBelt](https://plv.mpi-sws.org/rustbelt/) organization ensuring the UB-safety.
 
-You can always find more on what's good, bad and ugly about Rust, but the main point is that <mark>the language is not ideal</mark>, and there is definitely room for improvements.
+You can always find more on what's the good, the bad and the ugly about Rust, but the main point is that <mark>the language is not ideal</mark>, and there is definitely room for improvements.
 Plus one point to the justifying.
 
 ### Challengers Worth Mentioning
@@ -279,16 +283,16 @@ I love the core idea behind Crystal.
 I don't like its implementation.
 
 They are saying that [Crystal](https://crystal-lang.org/) is a general-purpose programming language, but that's not true.
-The language and its core team are focused on their needs, which is solely an amd64-linux platform.
+The language and its core team are focused on their needs, which is solely an `amd64-linux` platform.
 
 The standard library is bloated with heavy dependencies like `libxml` and `libyaml`, the language itself has GC, event loop and unwinding-based exceptions (i.e. a runtime) built-in, and it's therefore hardly possible to ship an executable for purposes other than serving requests over HTTP.
 
-After almost 10 years in development, the core team still has disagreements in the fundamental design, and you may commonly see controversial claims by its officials regarding to the Crystal's future on the forum.
+After almost 10 years in development, the core team still has disagreements in the fundamental design, and you may commonly see controversial claims by its officials regarding Crystal's future on the forum.
 They even can not decide if Crystal is a compiled Ruby or something else.
 
 <!-- TODO: Reference example issues and posts here. -->
 
-Regarding to the amount of bugs the only implementation has...
+Regarding the number of bugs the only implementation has...
 Once you dig a little bit deeper, it all begins to explode.
 Macros, generics, unions, interoperability: it may blow up anywhere.
 A core team [representative](https://github.com/asterite){.secret-link} without "core team" badge will then appear telling you that <small>it's not a bug, or wait, it is a bug, but it can not be fixed, oh wait, it can be fixed, but it's not a bug, issue closed, thanks</small>.
@@ -298,25 +302,25 @@ A core team [representative](https://github.com/asterite){.secret-link} without 
 The recently introduced multi-threading brings even more problems due to the lack of proper addressing of the data races in the language.
 As most of the other design decisions in Crystal, this one has been taken somewhere in Manas without any open discussion.
 
-I've spent two years in the Crystal ecosystem, and it did not moved forward a bit, only backwards (bye, [Serdar](https://twitter.com/sdogruyol), bye [Julien](https://twitter.com/ysbaddaden)).
+I've spent two years in the Crystal ecosystem, and it did not move forward a bit, only backwards (bye, [Serdar](https://twitter.com/sdogruyol), bye [Julien](https://twitter.com/ysbaddaden)).
 A brilliant idea is buried by lack of focusing on the community needs.
 A hard lesson to learn.
 It's time for (_spoiler alert_) Crystal done right.
 
 ## Backwards Compatibility
 
-One would now jump into proudly announcing another language they've come up with, an utopia-grade solution to replace both C++ and Rust once and forever.
+One would now jump into proudly announcing another language they've come up with, a utopia-grade solution to replace both C++ and Rust once and forever.
 
 But the "forever" claim is kinda sloppy.
 
 Remember how I mentioned earlier that backwards compatibility is not _that_ good?
-The truth is that there will always be unforeseeable new features at some point, which have to be implemented so a language stays competitive.
+The truth is that there will always be unforeseeable new features at some point, which have to be implemented, so a language stays competitive.
 For example, coroutines, a term coined in 1958, were not much of interest until 2010's...
 
 A product aiming to preserve backwards compatibility has to somehow insert new features into existing rules without introducing breaking changes.
 
-C++ is a great primer on how not to.
-Constrained by existing implementations, they add overly complicated `co_await` functionality into the standard library with auxiliary garbage, which instead should have been built into the language itself (the functionality, not the garbage).
+C++ is an excellent primer on how not to.
+Constrained by existing implementations, they add overly complicated `co_await` functionality into the standard library with extra garbage, which instead should have been built into the language itself (the functionality, not the garbage).
 
 Another ad-hoc example is C++20 concepts.
 Instead of allowing to restrict generic arguments in-place, a new `requires` syntax is added, which is quite cumbersome: see [this](https://akrzemi1.wordpress.com/2020/01/29/requires-expression/) and [this](https://akrzemi1.wordpress.com/2020/03/26/requires-clause/).
@@ -326,16 +330,16 @@ What's the state of support of SIMD vectors, tensors or half-precision floats in
 Oh please.
 Instead of being incorporated into the standard, implementations come with their own solutions, which further invests into the chaos.
 
-But breaking changes are always painful, you would argue, because on one side you want to use all the shiny new features, but on the other you don't want spend a dime rewriting your code.
+But breaking changes are always painful, you would argue because on one side you want to use all the shiny new features, but on the other, you don't want to spend a dime rewriting your code.
 It becomes even worse when an open-source library author you're depending on decides that they will not support the older major version of a language; or, instead, they won't move on to the newer version.
 
-Given the amount of open-source libraries your project depends on, you are in trouble, as library versions become stale or incompatible.
+Given the number of open-source libraries your project depends on, you are in trouble, as library versions become stale or incompatible.
 
-All what's left is to visit a library's bugtracker and leave a "what's the status of this?" or "+1" comment, or maybe even put a little bit more effort:
+All that's left is to visit a library's bug tracker and leave a "what's the status of this?" or "+1" comment, or maybe even put a little bit more effort:
 
-[![I'm sorry for putting my Patreon account link in a MIT-licensed repository 😔](/public/img/posts/2020-08-16-system-programming-in-2k20/are-you-still-there.png "Are you still there??" =100%x)](https://github.com/vladfaust/unity-wakatime/issues/25)
+[![I'm sorry for putting my Patreon account link in an MIT-licensed repository 😔](/public/img/posts/2020-08-16-system-programming-in-2k20/are-you-still-there.png "Are you still there??" =100%x)](https://github.com/vladfaust/unity-wakatime/issues/25)
 
-When deciding on which language to built your next big project™ in, what you (or your PM) really want is that it accounts for all the present and future software and hardware features, has ultimate performance, maintainability, and never introduces any breaking changes, so you constantly reap the rich choice of forever-actual libraries.
+When deciding on which language to build your next big project™ in, what you (or your PM) really want is that it accounts for all the present and future software and hardware features, has ultimate performance, maintainability, and never introduces any breaking changes, so you constantly reap the rich choice of forever-actual libraries.
 
 Of course, such a language should be free as beer, as all of the forever-actual libraries.
 What's the point otherwise?
@@ -350,21 +354,21 @@ Wait a minute.
 
 At 32:15, Carol says:
 
-> When I first heard of that idea, I thought it sounds terrible from the compiler maintainance point of view: you have to maintain two ways to use every feature forever, because we wanted to commit to all editions being supported forever. But it's actually not that bad.
+> When I first heard of that idea, I thought it sounds terrible from the compiler maintenance point of view: you have to maintain two ways to use every feature forever because we wanted to commit to all editions being supported forever. But it's actually not that bad.
 
 Then they take a good thinking sip of water and prove that it is indeed that bad.
 
 [![MFW I realize something's wrong but the slides are already there (clickable)](../../../public/img/posts/2020-08-16-system-programming-in-2k20/carol-knows.png "Carol knows the truth" =100%x)](https://youtu.be/A3AdN7U24iU?t=1822)
 
-Effecitively, the "forever `~> 1`" policy limits the amount of fundamental features Rust MIR can have changed.
+Effectively, the "forever `~> 1`" policy limits the number of fundamental features Rust MIR can have changed.
 According to the talk, only a few keywords are to differ between editions.
 
-So what we have in the dry run is a never-really-changing language with a number of slightly-different dialects to support.
-Occasionally, an implementation would opt-out of supporting an edition, and consequentely all the libraries written in this edition become unusable.
+So what we have in the dry run is a never-really-changing language with some slightly-different dialects to support.
+Occasionally, an implementation would opt-out of supporting an edition, and consequently all the libraries written in this edition become unusable.
 No ecosystem split, huh?
 
 The editions problem could be addressed by supporting multiple editions in a single library.
-But what if a library author you're depending on decides that they will not support a certain edition...
+But what if a library author you're depending on decides that they will not support a specific edition...
 Um.
 
 > [Ever got that feeling of déjà vu?](https://static.wikia.nocookie.net/overwatch_gamepedia/images/c/c0/Tracer_-_Ever_get_that_feeling_of_d%C3%A9j%C3%A0_vu.ogg){.secret-link}
@@ -376,15 +380,15 @@ Oh those lazy open-source, free, OSI-licensed library maintainer bastards, they 
 
 For some, programming is just a job.
 
-For others, programming is a form of an artistic expression.
-For artists, writing open-source software facilicates the top two levels of the Maslow's hierarchy: self-actualization and esteem.
+For others, programming is a form of artistic expression.
+For artists, writing open-source software facilitates the top two levels of the Maslow's hierarchy: self-actualization and esteem.
 They enjoy writing clean, well-documented code, so anyone using it could feel the same.
 
-Guess who creates (a big portion of) quality open-source software?
+Guess who creates (a significant portion of) quality open-source software?
 
 ![Us, the artists!](../../../public/img/posts/2020-08-16-system-programming-in-2k20/it-was-me.jpg =100%x)
 
-The above certainly applies to myself.
+The above certainly applies to me.
 
 I used to maintain a [number](https://github.com/vladfaust?tab=repositories&q=&type=&language=crystal) of Crystal projects, most of which were well-documented and optimally performant.
 I enjoyed writing [documentation](http://github.vladfaust.com/mini_redis/index.html) and [compiling changelogs](https://github.com/vladfaust/mini_redis/releases/tag/v0.2.0).
@@ -398,7 +402,7 @@ You can find out more about my journey in programming in the [introductory post]
 
 ### Primitive Needs to Be Ashamed Of
 
-An artist, as any other human, has more needs to satisfy, though.
+An artist, like any other human, has more needs to satisfy, though.
 These are safety and psychological needs.
 In other words, a man gotta pay his bills.
 
@@ -412,45 +416,45 @@ At the best times, my salary as an Open-Source engineer was pathetic $70.
 
 ![Earnings BEFORE TAX](/public/img/posts/2020-08-16-system-programming-in-2k20/patreon-income.png "A Patreon income graph with an extremum of $70" =100%x)
 
-I did receive some "tokens of appreciation" from companies a couple of times, but those were not regular and I could certainly not have a decent living even with them.
+I did receive some "tokens of appreciation" from companies a couple of times, but those were not regular, and I could certainly not have a decent living even with them.
 
-You may argue that it was my fault to choose a young promising language with sweet syntax and native performance to invest my time into, but read this sentence again.
+You may argue that it was my fault to choose a promising young language with sweet syntax and native performance to invest my time in, but reread this sentence.
 
 ----
 
 Is it easy to pay your bills when you're a poet?
 
-Poetry is a fundamental form of art, but only a few, from many talented, poets can make their living doing what they love.
-Given the same talent level, it takes a big luck to become recognized and earn enough to pay rent.
+Poetry is a basic form of art, but only a few, from many talented, poets can make their living doing what they love.
+Given the same talent level, it takes big luck to become recognized and earn enough to pay rent.
 
 Some poets may come to streets and start reciting their poetry, hoping for a dime donated.
-Some are more than happy to be hired by a children book publishing companiy which needs lots of similar poems...
+Some are more than happy to be hired by a children book publishing company which needs lots of similar poems...
 As the individualism fades away.
 
 <!-- TODO: I can't remember a Javascript repository with brilliant sentences like "if you liked the code, maybe check out my patreon 😂😂😂, but if you want 😂😂😂, sorry 😂😂😂". -->
 
-There is a number of paths for an open-source maintainer:
+There are several paths for an open-source maintainer:
 
   1. To spend their time entirely for free.
   1. To spend their time entirely for free, but put a link to their pitiful $0.0002/week Liberapay account, which would inevitably infuriate some Rabadash8820.
-  It is also required to always wrap the links with "😂" emojis and constantly [feel bad](https://clips.twitch.tv/RacyImpossibleTubersWTRuck) about asking to compensate your time.
+  It is also required to always wrap the links with "😂" emojis and constantly [feel bad](https://clips.twitch.tv/RacyImpossibleTubersWTRuck) about asking to compensate for your time.
   The fuck?
   1. To sell their time as a software consultant and provide direct support for their libraries.
   These are often sold under the donations sauce and imply the same shameful constraints.
   1. To choose one of the explicit business model paths, such as open-core, where the product is not an open-source anymore, but a real business with marketing, cold calls, email spam, free trials etc.
 
-Regarding to working for free (paths 1 and 2), I love this quote by myself:
+Regarding working for free (paths 1 and 2), I love this quote by myself:
 
 > Companies rely on those spending their precious time for free in the hope of being hired by those companies.
 > A Saṃsāra's circle to break.
 
 Compared to poetry, the consultancy path (3) is like giving interviews and explaining your poems to others verse-by-verse. Which is not that bad.
 Although sometimes you want to spend your time on writing new poems instead of explaining the old ones.
-Moreover, some precious time has already been put into an old poem, and shall be compensated as well.
+Moreover, some precious time has already been put into an old poem and shall be compensated as well.
 Musicians do not tend to give their already written songs for free, do they?
 
-Regarding to an explicit business path (4), I believe that it has the same consequences for software as for poetry or music.
-An artist starts to think about money more than art, which inevitable leads to worse quality.
+Regarding an explicit business path (4), I believe that it has the same consequences for software as for poetry or music.
+An artist starts to think about money more than art, which inevitably leads to worse quality.
 For example, in the open-core model, a maintainer spends resources on consciously deciding which features are to be deleted from the "open" part, and how to glue them with the paid part.
 
 That being said, are there any other ways to sustain open-source, <mark>to make open-sourcing a _real job_</mark>?
@@ -461,19 +465,19 @@ For musicians, there are platforms like Spotify, where a listener pays a fixed a
 
 Can it be applied to model open-source sustainability?
 
-One of the problems arising is how to determine "popularity" of an open-source library.
-Is that the amount of unique downloads ("launches")?
+One of the problems arising is how to determine the "popularity" of an open-source library.
+Is that the number of unique downloads ("launches")?
 Or maybe some sort of manually-triggered endorsements?
 
 Also, a library may still be useful, but too specific, hence not "popular".
-Its maintainance would still require comparable amount of resources.
+Its maintenance would still require a comparable amount of resources.
 
 The solution may be an algorithm taking into consideration both downloads from, say, unique IP addresses, per month, and manual endorsement actions like claps on Medium.
 Unfortunately, highly-narrowed, hence unpopular, libraries would still have to look for other sources of funding.
 
 Okay, this looks like a good plan.
 But.
-In the music world, an artist becoming obsessed with the amount of streams rather than with the quality of their music, either loses its popularity, or changes trends towards <s>shitty</s> lesser-quality music.
+In the music world, an artist becoming obsessed with the number of streams rather than with the quality of their music, either loses its popularity or changes trends towards <s>shitty</s> lesser-quality music.
 
 ![I don't know who is it](../../../public/img/posts/2020-08-16-system-programming-in-2k20/a-famous-mumbler.jpg "A 6ix9ine photo" =100%x)
 
@@ -482,10 +486,10 @@ Yes.
 A greedy (or lucky) programmer may create a ton of `is-even()`-like libraries to be occasionally present as a dependency in a plethora of libraries.
 Do they deserve to be rewarded?
 Absolutely.
-They do create value recognized by dependants, and this shall be propely rewarded.
-Does it make overall situation worse?
-Yes, because there eventually is a bigger amount of libraries to be aware of and put into dependency lists.
-Generally, the more dependencies there is, [the worse](https://blog.carlmjohnson.net/post/2020/avoid-dependencies/).
+They do create value recognized by dependants, and this shall be properly rewarded.
+Does it make the overall situation worse?
+Yes, because there eventually is a larger amount of libraries to be aware of and put into dependency lists.
+Generally, the more dependencies there are, [the worse](https://blog.carlmjohnson.net/post/2020/avoid-dependencies/).
 
 ::: spoiler A classic meme
 
@@ -500,20 +504,20 @@ It would be unfair to award a single "use" of an `is-even()` library equally to 
 How to clearly determine the value then?
 
 I bet on the number of characters in a library's source code, including those commented (because documentation matters) and in binary files.
-As a result, it would be more profitable to release big libraries: a user would likely require only the files they need (making an overall library size irrelevalt to the compilation time), but the algorithm would still count the total amount of lines of code in a library, regardless of which files are required.
+As a result, it would be more profitable to release big libraries: a user would likely require only the files they need (making an overall library size irrelevant to the compilation time), but the algorithm would still count the total amount of lines of code in a library, regardless of which files are required.
 
 One may argue that such a design would encourage Indian-style coding, with lots of repetitions and other crazy practices.
-But libraries are normally designed for re-use and continuous maintainance, which means periodically adding new bugs and removing features.
+But libraries are typically designed for reuse and continuous maintenance, which means periodically adding new bugs and removing features.
 This is not a one-time freelance job.
 
 Even if one decides to go sneaky and publish lots of hardly maintainable code, then, well, they will lose the competition, because they will not be able to maintain the code themselves.
 
 Given a choice, a business shall choose a library whichever is maintained and documented better, and whichever compiles and runs faster.
-This is not about music taste getting worse, when a user would continue listening to whatever <s>shitty</s> low-effort product is released. It is about clearly defined business needs, when compile time and runtime cost actual money.
+This is not about music taste getting worse, when a user would continue listening to whatever <s>shitty</s> low-effort product is released. It is about clearly defined business needs when compile-time and runtime cost actual money.
 
 Moreover, when a maintainer has a decent user base paying the bills, hence reputation, they (a maintainer) would take on security [more seriously](https://qz.com/646467/how-one-programmer-broke-the-internet-by-deleting-a-tiny-piece-of-code/).
 
-<!-- Oh, and manual endorsements should only be made possible from those "paying" customers, so that only actual users of an endorsed library affect its funding. -->
+<!-- Oh, and manual endorsements should only be made possible from those "paying" customers so that only actual users of an endorsed library affect its funding. -->
 
 The model seems win-win to me, at least theoretically.
 I don't know if it would work in reality, but I guess it's worth trying.
@@ -528,11 +532,11 @@ What benefits would the language experience?
 A real market with healthy competition attracts new library authors and incentivizes the old ones to continue maintenance to stay competitive.
 That means more libraries in general and less stale issues.
 
-A rich, constantly growing ecosystem attracts new developers, which in turn implement libraries for their own usage, and maybe occasionaly publish them.
+A rich, constantly growing ecosystem attracts new developers, which in turn implement libraries for their own usage, and maybe occasionally publish them.
 
 <mark>**A healthy competition in the ecosystem frees the language from the backwards compatibility burden.**</mark>
 Once it (the language) introduces a breaking change, it's up to library authors to support the new version.
-If they decide to drop support for a major language version which is in use, other will likely take the spot.
+If they decide to drop support for a major language version which is in use, others will likely take the spot.
 
 Wow.
 Let's try applying the model to existing languages.
@@ -555,30 +559,30 @@ _Not great, not terrible._
 
 Anyway, the only relevant (and alive) projects I could find are [Conan](https://conan.io/), [Buckaroo](https://buckaroo.pm/), [Hunter](https://github.com/cpp-pm/hunter), [VCPKG](https://github.com/Microsoft/vcpkg) and [Pacm](https://sourcey.com/pacm/).
 Neither of which is centralized.
-They all propose to either set up own package server or download packages directly from sources.
+They all propose to either set up their own package server or download packages directly from sources.
 
 But what about observability?
 How does one find C++ packages to use in their projects?
 What I if want, for example, an HTTP server package?
 My variants are either [Googling](https://lmgtfy.com/?q=c%2B%2B+http+server+library), [GitHubbing](https://github.com/search?q=c%2B%2B+http+library), asking on [Reddit](https://www.reddit.com/r/cpp/comments/cjj9t5/what_c_web_server_library_one_should_use_nowadays/), lurk through manually maintainted [lists of libs](https://en.cppreference.com/w/cpp/links/libs)...
-There is definetely a pain to solve!
+There is definitely a pain to solve!
 
 ::: off
 
-While working on this article, I've tried VCPKG, and it's pretty damn good in current stage.
-It has its problems like inability to select a compiler on Windows, or select a compiler in principle, which leads to standard compatibility issues.
+While working on this article, I've tried VCPKG, and it's pretty damn good in the current stage.
+It has its problems like inability to select a compiler on Windows or select a compiler in principle, which leads to standard compatibility issues.
 The latter is more of the loose- C++ -standard issue.
 
 :::
 
-Imagine a shiny new world <s>order</s> with a centralized repository of C++ libraries with good searching features, tags, compatibility information etc!
+Imagine a shiny new world <s>order</s> with a centralized repository of C++ libraries with good searching features, tags, compatibility information etc.!
 
 Would it actually change anything in <s>current government</s> C++?
 I doubt so.
 
 C++ is archaic by itself!
 
-Breaking changes to C++ aren't possible even if there was a centralized on-demand library manager solving the library funding problem.
+Breaking changes to C++ aren't possible even if a centralized on-demand library manager was solving the library funding problem.
 There is no fresh blood in C++, most of the youngsters do not want to bear with poor design the language imposes by itself.
 The amount of time needed to convince Stroustrup-aged C++ committee members to push breaking changes into the ISO-governed standard...
 I don't think it's feasible by any means.
@@ -597,7 +601,7 @@ _Another younger-looking gentleman steps onto the scene._
 
 Ahem.
 As we can see, there is no point in spending time on implementing a C++ package manager, as it would never be standardized (unless you're a Microsoft), hence widely adopted.
-C++ itself would become a history sooner than it happens.
+C++ itself would become history sooner than it happens.
 But you, a reader, can try it for yourself.
 I don't mind.
 
@@ -610,33 +614,33 @@ The ([upcoming](http://smallcultfollowing.com/babysteps/blog/2020/01/09/towards-
 All they need to do is to implement the Algorithm.
 
 With such a platform implemented, Rust the language would be free to introduce breaking changes.
-I'm not sure about whether the editions concept should remain, though.
+I'm not sure about whether the concept of editions should remain, though.
 But anyway.
 
 Even if I, as an individual, manage to implement a crates.io on-demand competitor earlier than the Rust Foundation does, they will inevitably take over, [thanking me](https://keivan.io/the-day-appget-died/) for the beta-test of the idea.
 Therefore, there is no motivation for me to spend time on a crates.io competition.
 
 Moreover, I've already stated above why I don't like the Rust language itself.
-Convincing Rust maintainers to satisfy my complaints in a an already stabilized language is harder than standardizing a new one.
+Convincing Rust maintainers to satisfy my complaints in an already stabilized language is more challenging than standardizing a new one.
 
 #### An Implementation
 
 The same applies for Javascript with [recently РЁРёСЂРѕРєР-acquired NPM](https://github.blog/2020-03-16-npm-is-joining-github/) and my desire for a system programming language rather than... Javascript.
 
 Big guys owning existing centralized package distribution platforms might try solving the Open Source sustainability problem with the source-on-demand model.
-Until then, no smaller company or individual would dare implementing a competitor, and the suffer continues.
+Until then, no smaller company or individual would dare to implement a competitor, and the suffering continues.
 
 But if I were to implement a new system programming language, I'd then have enough power to experiment with the model.
 Plus one point to justifying.
 
 <!-- Is that a monopoly?
-May be it is.
+Maybe it is.
 
-EU headquaters are enraged by Facebook acquiring Instagram, but when a single company owns both GitHub and NPM, which effectively covers 80% of the world's software -- that's alright. -->
+EU headquarters are enraged by Facebook acquiring Instagram, but when a single company owns both GitHub and NPM, which effectively covers 80% of the world's software -- that's alright. -->
 
 ## On Standardization
 
-Wikipedia does a good job at explaining how [standardization affects technology](https://en.wikipedia.org/wiki/Standardization#Effect_on_technology):
+Wikipedia does an excellent job of explaining how [standardization affects technology](https://en.wikipedia.org/wiki/Standardization#Effect_on_technology):
 
 > Increased adoption of a new technology as a result of standardization is important because rival and incompatible approaches competing in the marketplace can slow or even kill the growth of the technology (a state known as market fragmentation).
 > The shift to a modularized architecture as a result of standardization brings increased flexibility, rapid introduction of new products, and the ability to more closely meet individual customer's needs.
@@ -665,7 +669,7 @@ For example, some company may need a compiler for their exotic target.
 
 Take [Zig](https://ziglang.org/).
 Andrew has to work on [supporting many targets](https://ziglang.org/#Wide-range-of-targets-supported) at once.
-Instead, he could delegate the implementation job to someone else and focus on the language specification instead.
+Instead, he could delegate the implementation job to someone else and focus on the language specification.
 This would speed up the maturing process.
 
 ![At first you be like](../../../public/img/posts/2020-08-16-system-programming-in-2k20/andrew-happy.png =100%x)
@@ -677,9 +681,9 @@ This would speed up the maturing process.
 :::
 
 Apart from standardizing the language itself, its ecosystem shall also be standardized, including package management.
-This would <mark>allow competing implementations to remain compatible</mark>, giving a end-user more freedom in choosing of right tooling.
+This would <mark>allow competing implementations to remain compatible</mark>, giving an end-user more freedom in choosing of right tooling.
 
-If I _were_ working on a language, standardization would matter more than implementation for me.
+If I _were_ working on a language, standardization would matter more than an implementation for me.
 
 ## Wrapping up
 
@@ -693,14 +697,14 @@ Creating a new language and applying the source-on-demand model to its canonical
 
 Standardization of the language and its ecosystem implies a greater selection of compatible implementations and tooling for the end-user.
 
-With the language's ecosystem being properly funded, the language itself stays flexible, allowing for breaking changes.
+With the language's ecosystem being adequately funded, the language itself stays flexible, allowing for breaking changes.
 A flexible language stays modern, forever.
 
 Worths a shot, doesn't it?
 
 ## The New Beginnings
 
-Finally, it's the time to proudly announce another language I've come up with, an utopia-grade solution to replace both C++ and Rust once and forever!
+Finally, it's the time to proudly announce another language I've come up with, a utopia-grade solution to replace both C++ and Rust once and forever!
 
 So, what are the goals defined for the new language?
 
@@ -760,4 +764,4 @@ Read more about it in [the Onyx Programming Language](/posts/2020-08-20-the-onyx
 
 In this article, I've come to a conclusion that the world needs (yet) another system programming language with a solid foundation and funding of its ecosystem, which would potentially solve all the existing problems.
 
-I have formulated the goals for the new language and its ecosystem, and even began working on the implementation, which you can read about more in the [next article](/posts/2020-08-20-the-onyx-programming-language).
+I have formulated the goals for the new language and its ecosystem and even began working on the implementation, which you can read about more in the [next article](/posts/2020-08-20-the-onyx-programming-language).

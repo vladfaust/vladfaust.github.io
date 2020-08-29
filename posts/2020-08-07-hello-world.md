@@ -4,8 +4,8 @@ location: Moscow, Russia
 ---
 
 How many years of programming experience is needed to be qualified to start a tech blog?
-Ten, fiveteen?
-I see many blogging even with [zero](https://dev.to/), so I decided to give it a try as well.
+Ten, fifteen?
+I see much blogging even with [zero](https://dev.to/), so I decided to give it a try as well.
 
 Time for an introductory post!
 
@@ -35,7 +35,7 @@ In 2016, I fell in love with Ruby with the help of the famous the Michael the Ha
   * [Bitcoinpay](https://github.com/vladfaust/bitcoinpay-client)
   * [Blockchain::Api](https://github.com/vladfaust/blockchain-api)
 
-I did truly enjoy Ruby on Rails, but after some time I began wondering if there were more performant alterntatives.
+I did truly enjoy Ruby on Rails, but after some time, I began wondering if there were more performant alternatives.
 So I went from Rails to Hanami, and then to Roda and Sequel, and then occasionally run into <s>Assembler</s> [Crystal](https://crystal-lang.org/).
 
 I instantly got _addicted to Crystal_.
@@ -56,7 +56,7 @@ Throughout the next two years, I've developed a number of very useful shards:
 I even managed to build my [own web framework](https://onyxframework.org/) featuring a [REST server](https://onyxframework.org/http), a database-agnostic [SQL ORM](https://onyxframework.org/sql) and even an [EDA platform](https://onyxframework.org/eda)!
 I've also built a (now defunct) [Crystal Jobs](https://github.com/crystaljobs) website and the [RealWorld implementation](https://github.com/vladfaust/crystalworld) in Crystal.
 
-I've left the Crystal ecosystem, unfortunately <s>for Crystal</s>, because this is not the language I've always dreamt of.
+Unfortunately <s>for Crystal</s>, I've left the Crystal ecosystem, because this is not the language I've always dreamt of.
 And because of [some](https://github.com/asterite){.secret-link} [other](https://github.com/RX14){.secret-link} reasons, but more on that later.
 
 In June 2019, I began working on my own programming language, [Onyx](/posts/2020-08-20-the-onyx-programming-language).
@@ -79,12 +79,12 @@ Anyone?
 
 Human creation is what I enjoy a lot.
 I love listening to good music and examine great drawings.
-I can play ukulele and willing to learn piano and singing.
+I can play ukulele and willing to learn the piano and singing.
 I'm also experimenting with 3D modelling and digital art.
 
 > [I'll try anything once.](https://gamepedia.cursecdn.com/overwatch_gamepedia/8/81/Echo_-_I%27ll_try_anything_once.ogg){.secret-link}
 
-Some time in the future I plan to work on a strong AI implementation, which you can share music and watch movies together with.
+Sometime in the future, I plan to work on a strong AI implementation, which you can share music and watch movies together with.
 This is where [Onyx](/posts/2020-08-20-the-onyx-programming-language) comes into play!
 
 As a pragmatic person, I wrote some seemingly depressive articles "revealing the truth":
@@ -100,5 +100,5 @@ On my 24^th^ birthday, I've recorded a [video](https://www.youtube.com/watch?v=q
 I think that's enough for an introductory post.
 Now you know a little bit more about yourself.
 
-See you a round,<br>
+See you around,<br>
 Vlad.

@@ -23,23 +23,23 @@ ${toc}
 
 I've been working on the [Onyx programming language](/posts/2020-08-20-the-onyx-programming-language) full-time for the past year.
 The work includes standardization and implementation.
-The process is _near to completion_, and there is a solid chance for you to write your name in history.
+The process is _near to completion_, and there is a substantial chance for you to write your name in history.
 
 In this post, I'll try to justify my eager will to grab your money with some proof of work.
 
-By the way, I assume you've read my recent [post on System Programming](/posts/2019-08-16-system-programming-in-2k20), there is a [section](/posts/2019-08-16-system-programming-in-2k20/#on-open-source-sustainability) regarding to the open-source sustainability; as long as all my work is open, I'm also, um, an open-source engineer and thus need finanical support.
+By the way, I assume you've read my recent [post on System Programming](/posts/2019-08-16-system-programming-in-2k20), there is a [section](/posts/2019-08-16-system-programming-in-2k20/#on-open-source-sustainability) regarding to the open-source sustainability; as long as all my work is open, I'm also, um, an open-source engineer and thus need financial support.
 
 ## Deeds Already Done
 
-The onyxlang.com domain name was registered at June 20^th^ 2019.
-As I have a sin of registering domains as soon as I have a solid idea, the day may be treated as the Onyx birth day.
+The onyxlang.com domain name was registered on June 20^th^ 2019.
+As I have a sin of registering domains as soon as I have a solid idea, the day may be treated as the Onyx birthday.
 
 Today is August 27^th^ 2020, and I've already spent a plethora of time on Onyx.
 You can see it for yourself in [NXSF](https://github.com/nxsf) and [FancySoft](https://github.com/fancysofthq) organization repositories!
 
 ### Tracked Time
 
-From June 20^th^ 2019 until August 27^th^ 2020, this is the total time I've spent on *coding* Onyx specificaiton, reference(s) and implementation(s):
+From June 20^th^ 2019 until August 27^th^ 2020, this is the total time I've spent on *coding* Onyx specification, reference(s) and implementation(s):
 
 ::: hero
 
@@ -47,7 +47,7 @@ From June 20^th^ 2019 until August 27^th^ 2020, this is the total time I've spen
 
 :::
 
-I've had hard _time_ on maintaining a single project across machines, so there is a lots of them (projects).
+I've had hard _time_ on maintaining a single project across machines, so there is a lot of them (projects).
 You may click on a project's name to see a detailed timing per file.
 
 _Due to WakaTime limitations, I have to split the periods._
@@ -98,9 +98,9 @@ In fact, implementing before giving a good thought may lead to [tragic results](
 
 ![[Shower](https://www.reddit.com/r/Showerthoughts/) is the general sponsor of Onyx](../../../public/img/posts/2020-08-27-sponsoring-onyx/thinking-meme.jpg "A 'programming is mostly thinking' meme" =60%x)
 
-I've destroyed a number of notebooks while deciding on either using `do` / `end` or tabs.
+I've destroyed several notebooks while deciding on either using `do` / `end` or tabs.
 <small>There has been a double of them throughout the year, but who's gonna believe in it?</small>
-Would you dare to calculate the amount of sleepless hours I've spent on _thinking_?
+Would you dare to calculate the number of sleepless hours I've spent on _thinking_?
 
 ![](../../../public/img/posts/2020-08-27-sponsoring-onyx/some-notebooks-1.png "A pile of three notebooks" =49%x)
 ![](../../../public/img/posts/2020-08-27-sponsoring-onyx/some-notebooks-2.png "Contents of one of the notebooks" =49%x)
@@ -121,9 +121,9 @@ Would you dare to calculate the amount of sleepless hours I've spent on _thinkin
 
 ## Sponsoring the Development
 
-So, the idea is simple: I want to be able to pay my bills while working on a thing both I enjoy working on and being useful for the humanity.
+So, the idea is simple: I want to be able to pay my bills while working on a thing both I enjoy working on and being useful for humanity.
 
-Later on, I'm planning to make [NXSF](https://nxsf.org) an official 501 \(c\) non-profit organization, so donations made to it would be tax-excemptive, and I will have an official salary (_finally!_).
+Later on, I'm planning to make [NXSF](https://nxsf.org) an official 501 \(c\) non-profit organization, so donations made to it would be tax-exemptive, and I will have an official salary (_finally!_).
 However, this would only happen when the language moves to the alpha stage (see the roadmap).
 
 Right now, Onyx is in the pre-alpha stage.
@@ -133,33 +133,33 @@ Nothing is publicly stable, work-in-progress etcetera.
 
 Note that theoretically I could've tried applying to Open Collective right now, but:
 
-  1. It implies free-will donations, but what I'm proposing here is clearly a purchase of placement in history;
+  1. It implies free-will donations, but what I'm proposing here is clearly purchase of placement in history;
 
   1. I don't think Onyx is currently "popular" enough;
 
-  1. They take **huge** comissions.
+  1. They take **huge** commissions.
 
 :::
 
 ----
 
 But I still need to pay my bills.
-And as I haven't got a real job for a long, long time, my financial cushion is quite thin.
+And as I haven't got a real job for a long, long time, my financial cushion is relatively thin.
 
-As a copyright holder, I'm planning on licensing the Onyx Standard Specification and auxilliary standards with a free, open-source license requiring an attribution.
+As a copyright holder, I'm planning on licensing the Onyx Standard Specification and auxiliary standards with a free, open-source license requiring attribution.
 
 Therefore, I can offer you, a potential sponsor, a **perpetual**\* attribution in the standards I'll be working on during the pre-alpha development stage.
 Your name or company logo with an optional link would be put into according "early contributors" sections of the standards.
 
 \* As long as my attribution is required.
-For example, if a standard is rewritten from scratch by an NXSF committee without infriging my patent rights, it then stops being a derivation of my work.
+For example, if a standard is rewritten from scratch by an NXSF committee without infringing my patent rights, it then stops being a derivation of my work.
 
 ### The Dark Scheme
 
 First of all, what I'm proposing is not a _donation_.
 It is a _purchase_ of placement in my attribution texts, a _sponsorship contribution_.
 
-Of course, you're free to pitch your ideas informally, but you will not have any voting rights in the standards development with this sponsorhsip.
+Of course, you're free to pitch your ideas informally, but you will not have any voting rights in the standards development with this sponsorship.
 
 ----
 
@@ -179,14 +179,14 @@ There are three sponsorship tiers:
 I want to incentivize early contributions, so the <s>pyramind</s> scheme is as follows.
 
 I learned the hard way that estimating time on completing such a big project as a <big>language specification</big> is _quite_ hard.
-Nonetheless, I'm planning moving on to the alpha stage in **3-6 months** from today (August 27^th^ 2020).
+Nonetheless, I'm planning to move on to the alpha stage in **3-6 months** from today (August 27^th^ 2020).
 
-The eariler you contribute, the more belief you have in me, the more you shall be rewarded.
+The earlier you contribute, the more belief you have in me, the more you shall be rewarded.
 And higher reward means higher placement in the contributors list!
 
 The placement of your attribution depends on your _contribution score_, which is based on the amount you've contributed.
-Each month from today until the alpha stage the score multiplier is reduced proportionally.
-The multiplier stays the same for you throghout the months if you contribute sequantially, i.e. without cancellations.
+Each month from today until the alpha stage, the score multiplier is reduced proportionally.
+The multiplier stays the same for you throughout the months if you contribute sequentially, i.e. without cancellations.
 
 ::: spoiler An example
 
@@ -217,9 +217,9 @@ In case of argument, the day a contribution was made matters: making a contribut
 
 
 Note that to be actually listed in the contributors list, you have to contribute the minimum corresponding sponsorship tier amount **at least once** during the pre-alpha stage.
-For example, even if you're continiously sponsoring with $24 per month, but never contributed $25+, your name will not be listed.
+For example, even if you're continuously sponsoring with $24 per month, but never contributed $25+, your name will not be listed.
 
-Also note that individual tier contributors are listed separately from business tier contributors.
+Also, note that individual tier contributors are listed separately from business tier contributors.
 
 ### My Soundcloud
 
@@ -228,7 +228,7 @@ Neither is preferred, choose whichever you like most.
 I'm not planning on creating paid posts etc.
 The difference is that BMC only has a single tier, but allows one-time contributions, which are counted as well.
 
-Direct Bitcoin donations are also accepted, but they are not eligeble for listing.
+Direct Bitcoin donations are also accepted, but they are not eligible for listing.
 
 ### Everlasting Dev
 
@@ -236,8 +236,8 @@ I want to assure you that I have no long-term plans on living on these sponsorsh
 I'm neither a [YandereDev](https://knowyourmeme.com/memes/people/yanderedev) nor some [Alex Medvednikov](https://vlang.io/).
 The sponsorship opportunity is in effect exclusively during the pre-alpha stage.
 
-Once the Foundation is established, you'll be guided to put your money there instead in form of donations.
-This implies tax excemption and voting rights.
+Once the Foundation is established, you'll be guided to put your money there instead, in the form of donations.
+This implies tax exemption and voting rights.
 
 [Fancy Software LLC](https://fancysoft.xyz) is a for-profit company and I as no other else want Onyx to be complete, so I can start working on my premium packages, self-hosted, gaming and AI products.
 No Patreon sponsorship or non-profit salary can buy me a house.
@@ -246,8 +246,8 @@ No Patreon sponsorship or non-profit salary can buy me a house.
 
 ----
 
-Until then, I want to be able to pay my bills and may be purchase a newer graphics card.
-In return, you get a chance to be immortalized as a visioner invested in better future.
+Until then, I want to be able to pay my bills and maybe purchase a newer graphics card.
+In return, you get a chance to be immortalized as a visioner invested in a better future.
 
 Follow me on [Twitter](https://twitter.com/vladfaust) and [GitHub](https://github.com/vladfaust), and also follow [NXSF](https://nxsf.org/) and [FancySoft](https://fancysoft.xyz/) to stay updated about the progress made.
 
