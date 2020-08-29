@@ -3,6 +3,7 @@ title: Hello, World!
 location: Moscow, Russia
 excerpt: How many years of programming experience is needed to be qualified to start a tech blog? Time for an introductory post!
 cover: /public/img/me.jpg
+ogType: article
 ---
 
 How many years of programming experience is needed to be qualified to start a tech blog?
