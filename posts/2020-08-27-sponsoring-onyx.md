@@ -1,12 +1,13 @@
 ---
 title: Sponsoring Onyx
 location: Moscow, Russia
+excerpt: Standardizing and implementing a system programming language is hard, but you can help!
+cover: /public/img/posts/2020-08-27-sponsoring-onyx/think-about-it-meme.jpg
+ogType: article
 ---
 
 Standardizing and implementing a system programming language is hard, but you can help!
 Find out how you can sponsor the future, and many hours does it take to create a language mascot, in this post.
-
-<!-- excerpt -->
 
 <h2>TL; DR;</h2>
 
@@ -124,7 +125,7 @@ Would you dare to calculate the number of sleepless hours I've spent on _thinkin
 So, the idea is simple: I want to be able to pay my bills while working on a thing both I enjoy working on and being useful for humanity.
 
 Later on, I'm planning to make [NXSF](https://nxsf.org) an official 501 \(c\) non-profit organization, so donations made to it would be tax-exemptive, and I will have an official salary (_finally!_).
-However, this would only happen when the language moves to the alpha stage (see the roadmap).
+However, this would only happen when the language moves to the alpha stage (see the roadmap at [nxsf.org](https://nxsf.org/)).
 
 Right now, Onyx is in the pre-alpha stage.
 Nothing is publicly stable, work-in-progress etcetera.
