@@ -739,7 +739,7 @@ This is where the Onyx Software Foundation comes into play.
 
 ## The Onyx Software Foundation
 
-The Onyx Software Foundation (NXSF) is to be an official 501 \(c\) non-profit organization, so donations made to it are tax-exemptive.
+The Onyx Software Foundation ([NXSF](https://nxsf.org)) is to be an official 501 \(c\) non-profit organization, so donations made to it are tax-exemptive.
 
 All NXSF processes are going to be transparent and open.
 
@@ -802,7 +802,7 @@ Onyx is the perfect balance between productivity and performance, a language und
 Thanks to powerful abstraction mechanisms and inference, the areas of the appliance are truly endless.
 I heartfully believe that Onyx may be that new lingua franca for decades until humanity learns to transfer thoughts directly into machines.
 
-Follow [NXSF](https://nxsf.org) to stay updated, and...
+Visit [nxsf.org](https://nxsf.org) to stay updated, and...
 
 ----
 
