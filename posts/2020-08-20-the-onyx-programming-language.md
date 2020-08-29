@@ -1,9 +1,10 @@
 ---
 title: The Onyx Programming Language
 location: Moscow, Russia
+templateEngineOverride: md
 ---
 
-In the [previous article](/posts/2019-08-01-system-programming-in-2k20) I successfully justified my desire to build yet another system programming language.
+In the [previous article](/posts/2020-08-16-system-programming-in-2k20) I successfully justified my desire to build yet another system programming language.
 Unlike _others_, I want to do it right from the very beginning.
 Meet Onyx!
 
@@ -345,7 +346,7 @@ export int main () {
 
     server.listen("localost", 3000)
   catch |e|
-    Std.puts("Caught \@{&#123; e }}\n")
+    Std.puts("Caught \@{{ e }}\n")
 
     while final loc = backtrace.pop?()
       Std.cout << "At " <<
@@ -363,19 +364,13 @@ export int main () {
 
 Thanks to powerful abstractions and type inference, you won't need to manualy use `socket` each time you want to spin up a web server on Linux!
 
-Oh, by the way, did you notice the `\@{&#123; e }}`\* thing?
+Oh, by the way, did you notice the `\@{{ e }}` thing?
 It was me, <s>Dio</s> macro!
-
-\* <small>TODO: Fix this HTML weirdness.</small>
 
 #### Macros
 
-TODO: Example on macros.
-Simple macros.
-Breakpoints in compile-time, code generation based on external configurations, e.g. of ORM models from SQL migration files.
-
-Another fundamental feature of Onyx is macros.
-Macro is a Lua code generating Onyx code (or another macro code).
+A fundamental feature of Onyx is macros.
+Macro is basically a Lua code generating Onyx code (or another macro code).
 Yes, recursive macros are allowed, but more on that later.
 
 Let's examine a very simple macro example.
@@ -384,9 +379,9 @@ Let's examine a very simple macro example.
 import "stdio.h"
 
 export void main() {
-  &#123;% for i = 0, 2 do %}
-    unsafe! $puts("i = &#123;{ i }}")
-  &#123;% end %}
+  {% for i = 0, 2 do %}
+    unsafe! $puts("i = {{ i }}")
+  {% end %}
 }
 ```
 
@@ -413,7 +408,7 @@ Well, yes, you have to trust the code you run.
 You do trust C libraries you link to your programs, right?
 
 However, you won't trust an NPM package, because an NPM package author does not care about their reputation, and because NPM does not have auditing features.
-This is the Open-Source sustainability problem addresses in the [previous article]((/posts/2019-08-01-system-programming-in-2k20)) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
+This is the Open-Source sustainability problem addresses in the [previous article]((/posts/2020-08-16-system-programming-in-2k20)) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
 
 As a result, given that you do have access to code you require, authors of packages your program depends on are properly rewarded for their work, and the Foundation sponsors audition of selected packages, you should be safe.
 
@@ -422,13 +417,17 @@ As a result, given that you do have access to code you require, authors of packa
 Back to the possibilities.
 Macro use-cases include:
 
-**Delegating computations to compile time.**
+::: hero
+
+**Delegating computations to compile time**
+
+:::
 
 For example, you can compute a Fibonacci number sequence in a macro, and output the result right into the code.
 Let's examine the following small snippet:
 
 ```text
-&#123;%
+{%
   -- Local context is preserved
   -- during this file compilation
   local function fib(n)
@@ -447,7 +446,7 @@ Let's examine the following small snippet:
 # This is a macro "function", which
 # may be used directly from Onyx code.
 macro @fib(n)
-  &#123;{ fib(n) }}
+  {{ fib(n) }}
 end
 
 import "stdio.h"
@@ -461,60 +460,99 @@ In this example, `@fib(10)` would evaluate during compilation and emit a number 
 
 Of course, this would increase compilation times, and it is your responsibility to find the right balance based on your needs.
 
-**Generating ORM models from SQL migration files.**
+----
+
+::: hero
+
+**Generating ORM models from SQL migration files**
+
+:::
 
 This is how it might look like:
 
 ```text
-&#123;%
-  -- Lots of compilation context information
-  -- is available in the global `nx` table
-  local model_name =
-    string.match(nx.file.path,
-      "^.+/(.+).nx$"))
+macro @gen_class(name)
+  {%
+    -- Accessing system configuration
+    local db_path = os.getenv("DB_PATH")
 
-  local db_path = os.getenv("DB_PATH")
+    -- Builds "create_user" for "user.nx" file.
+    -- Note that `name` variable is accessible.
+    local migration_file_path =
+      db_path .. "/create_" ..
+        name.value .. ".sql"
 
-  -- Builds "create_user" for "user.nx" file
-  local migration_file_path =
-    db_path .. "/create_" ..
-      model_name .. ".sql"
+    -- Requiring works as usual, so you may
+    -- make use of Lua packages, even those
+    -- with native C bindings!
+    local myparser = require("src/sqlorm.lua")
 
-  -- Requiring works as usual, so you may
-  -- make use of Lua packages, even those
-  -- with native C bindings!
-  local myparser = require("src/sqlorm.lua")
+    -- Begin emitting Onyx code
+    nx.emit("class User\n")
 
-  -- Begin emitting Onyx code
-  nx.emit("class User\n")
+    -- Emit a field defintion per column parsed
+    local function callback(field) do
+      nx.emit("let " .. field.name ..
+        " : " .. field.type .. "\n")
+    end
 
-  -- Emit a field defintion per column parsed
-  local function callback(field) do
-    nx.emit("let " .. field.name ..
-      " : " .. field.type .. "\n")
-  end
+    myparser.parse(
+      migration_file_path,
+      callback)
 
-  myparser.parse(
-    migration_file_path,
-    callback)
-%}
+    nx.emit("end")
+  %}
+end
 ```
 
-**Generating code based on current compilation target.**
+And then in some `model/user.nx` file:
+
+```text
+# Require the file
+# containing the macro
+require "gen_class"
+
+@gen_class("user")
+```
+
+Which would result in:
+
+```text
+require "gen_class"
+
+class User
+  let name : String<UTF8, 128>
+  let age : UBin8
+end
+```
+
+----
+
+::: hero
+
+**Generating code based on current compilation target**
+
+:::
 
 For example:
 
 ```text
-&#123;% if nx.target.isa.id == "amd64" then %}
+{% if nx.target.isa.id == "amd64" then %}
   $printf("This is amd64")
-&#123;% else %}
+{% else %}
   $printf("This is not amd64")
-&#123;% end %}
+{% end %}
 ```
 
-**Having different traits for different specializations.**
+----
 
-For example, there is `Int&lt;Base: ~ \%n, Signed: ~ \%b, Bitsize: ~ \%n>` type in the Core API representing an integer.
+::: hero
+
+**Having different traits for different specializations**
+
+:::
+
+For example, there is `Int<Base: ~ \%n, Signed: ~ \%b, Size: ~ \%n>` type in the Core API representing an integer.
 
 Based on the value of `Base` and `Signed` generic arguments, the actual code generated for, say, summation function, would call for different instructions for signed and unsigned integers.
 
@@ -526,16 +564,16 @@ reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
     final result = unsafe! uninitialized self
     final overflowed? = unsafe! uninitialized Bit
 
-    \&#123;%
+    \{%
       local s = nx.scope.S.val and "s" or "u"
       local t = "i" .. nx.scope.Z.val
     %}
 
     unsafe! asm
     template llvm
-      %res = call {\\&#123;{ t }}, i1} @llvm.\\&#123;{ s }}add.\
-      with.overflow.\\&#123;{ t }}(\\&#123;{ t }} $0, \\&#123;{ t }} $1)
-      $2 = extractvalue {\\&#123;{ t }}, i1} %res, 1
+      %res = call {\{{ t }}, i1} @llvm.\{{ s }}add.\
+      with.overflow.\{{ t }}(\{{ t }} $0, \{{ t }} $1)
+      $2 = extractvalue {\{{ t }}, i1} %res, 1
     in r(this), r(another)
     out =r(overflowed?)
     end
@@ -545,7 +583,7 @@ reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
     else
       unsafe! asm
       template llvm
-        $0 = extractvalue {\\&#123;{ t }}, i1} %res, 0
+        $0 = extractvalue {\{{ t }}, i1} %res, 0
       out =r(result)
       end
 
@@ -558,7 +596,138 @@ end
 This is a fairly complex example making use of inline assembly feature.
 But this is what the language is capable of.
 
-Notice that delayed macro blocks, i.e. those beginning with `\&#123;{`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int&lt;Base: 2, Signed: true, Bitsize: 16>` (a.k.a. `SBin16`) and `Int&lt;Base: 2, Signed: false, Bitsize: 32>` (a.k.a. `UBin32`).
+Notice that delayed macro blocks, i.e. those beginning with `{{`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int<Base: 2, Signed: true, Size: 16>` (a.k.a. `SBin16`) and `Int<Base: 2, Signed: false, Size: 32>` (a.k.a. `UBin32`).
+
+There were other features of Onyx mentioned in the example: 1) reopening certain, even broad (the `forall` thing), specializations, 2) and aliasing.
+In fact, this is how integer aliasing looks like in the Core API:
+
+```text
+# `IBin8` and `Bin8` are
+# both binary integer types.
+alias IBin&lt;*>, Bin&lt;*> = Int&lt;2, *>
+
+# Use a macro to DRY the code.
+private macro @alias_binary_sizes(id)
+  alias \{{ id }}8 = \{{ id }}&lt;8>
+  alias \{{ id }}16 = \{{ id }}&lt;16>
+  alias \{{ id }}32 = \{{ id }}&lt;32>
+  alias \{{ id }}64 = \{{ id }}&lt;64>
+  alias \{{ id }}128 = \{{ id }}&lt;128>
+end
+
+# Signed binary integers.
+alias SIBin&lt;*>, SBin&lt;*> = IBin&lt;true, *>
+@alias_binary_sizes("SIBin")
+@alias_binary_sizes("SBin")
+
+# Unsigned binary integers.
+alias UIBin&lt;*>, UBin&lt;*> = IBin&lt;false, *>
+@alias_binary_sizes("UIBin")
+@alias_binary_sizes("UBin")
+```
+
+----
+
+Macro code can generate other macro code.
+The algorithm is to evaluate immediate macros (e.g. `{% %}`) immediately once they are met in the code by some lexer, but evaluate delayed macros (e.g. `\{% %}`) only when the time is right, for example, per specialization.
+
+Apart from simply `print "Debug"`, Lua contains powerful debugging facilities, e.g. `debug()`.
+This means that you can debug your compilation, even with breakpoints from an IDE!
+
+### More Highlights
+
+  * SIMD vectors and matrices built-in with literals.
+  It looks like this:
+
+    ```text
+    let vec = &lt;1, 2, 3, 4>
+    vec : Vector&lt;SBin32, 4>
+
+    # Note: `0` means row-
+    # oriented matrix
+    let mat = |[1, 2], [3, 4]|r
+    mat : Matrix&lt;SBin32, 2, 2, 0>
+    ```
+
+    In fact, `Vector` and `Matrix` are specializations of a more general `Tensor` type.
+
+    ```text
+    primitive Tensor&lt;
+      Type: T,
+      Dimensions: *D ~ \%n,
+      Leading: L ~ \%n>;
+
+    alias Matrix&lt;
+      Type: T,
+      Rows: R ~\%n,
+      Cols: C ~\%n,
+      Leading: L ~ \%n
+    > = Tensor&lt;T, R, C, L>
+
+    alias Vector&lt;
+      Type: T,
+      Size: Z
+    > = Tensor&lt;T, Z, 0>
+    ```
+
+  * "Magic" literals inspired by Ruby:
+
+    ```text
+    let vec = %i&lt;1 2 3 4>
+    let mat = %i|[1 2][3 4]|r
+    let ary = %f64[1 2 3]
+    ```
+
+  * [IEC](https://en.wikipedia.org/wiki/Kibibyte) and [SI](https://en.wikipedia.org/wiki/Kilobyte) numerical literal prefixes:
+
+    ```text
+    # Kibi
+    @assert(42Ki == 43_008)
+
+    # Femto
+    @assert(42ff64 ~=
+      0.000_000_000_000_042)
+
+    # Mega and milli
+    @assert(42M.17mf64 ~=
+      42_000_000.017)
+    ```
+
+  * String and character literals with default UTF-8 encoding and UCS charset.
+  The language allows custom string and character literal suffixes for custom encodings.
+
+    ```text
+    final u8 = "Привет, мир!"
+    u8 : String&lt;UTF8, 21>
+    @assert(@sizeof(u8) == 21)
+
+    final u16 = "Привет, мир!"utf16le
+    u16 : String&lt;UTF16LE, 24>
+    @assert(@sizeof(u16) == 24)
+
+    # ASCII-US is NOT a built-in encoding
+    final ascii = "Hello, world!"asciius
+    ascii : String&lt;ASCII, 13>
+    @assert(@sizeof(ascii) == 13)
+
+    final c = 'ф'
+    c : Char&lt;UCS>
+    @assert(@sizeof(c) == 4)
+    ```
+
+  * Distinct aliasing allows to have a type with different methods, but the same layout.
+  For example, the `String` type is a distinct alias to an array of codeunits:
+
+    ```text
+    distinct alias String&lt;
+      Encoding: E,
+      Size: Z
+    > = Array&lt;Codeunit&lt;E>, Z>
+      # This method is only declared
+      # for strings, not arrays.
+      decl get_char(position : UBin32)
+    end
+    ```
 
 ----
 
@@ -570,16 +739,79 @@ This is where the Onyx Software Foundation comes into play.
 
 ## The Onyx Software Foundation
 
-TODO: List all the standards.
-Official standard development process with RFSs, voting, community champions.
-Canonical package hosting platform with built-in funding based on the source-on-demand model.
-Funding projects related to or written in Onyx, including teaching materials.
-Sponsoring conferences.
+The Onyx Software Foundation (NXSF) is to be an official 501 \(c\) non-profit organization, so donations made to it are tax-excemptive.
 
-<!-- TODO: Link the system programming article for justification.
+All NXSF processes are going to be transparent and open.
 
-TODO: Describe Onyx features, why it's better than other languages.
+### Standards
 
-TODO: Describe NXSF.
+The Foundation will be governing a number of major and auxillary standard specifications related to Onyx:
 
-TODO: Link the donating page. -->
+  1. [The Onyx Programming Language Specification](https://github.com/nxsf/onyx).
+  The specification includes the following:
+
+      1. Language specification, including macro API specification.
+
+      1. Platform identifiers specification.
+      For example, `amd64`, not `x86_64`.
+      The list includes [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture)s with meaningful default <abbr title="Instruction Set Extensions">ISE</abbr>s, modern processing units list (e.g. `skylake`) with set of enables ISEs for them, operating systems and ABIs.
+
+      1. Portable API format informative specification.
+      So that raw API documentation generated by a compiler may be used by different documentation visualizers.
+
+      1. Expected optimizations informative specification.
+      So a user may safely rely on compiler optimizations, e.g. loop unrolling.
+
+  1. The Onyx Standard Library Package Specification.
+  Basically, a set of declarations which standard library package implementations shall obey.
+
+  1. The Onyx Package Management Specification.
+  Defines client and server side APIs for relieable package acquisition.
+  This includes versioning algorithms and, for example, requiring third-party auditions.
+
+  1. The Onyx Compiler Interface Specification.
+  So different compiler implementations had unified interface to interact with, using DSON.
+
+  1. [Dead-Simple Object Notation (DSON) Specification](https://github.com/nxsf/dson).
+  This format is intended to be used in CLI to describe complex object structures.
+
+  1. [DSON Schema Specification.](https://github.com/nxsf/dson-schema)
+  The standard to describe objects in DSON.
+
+Standardization process will be official, with responsible committees consiting of community-elected members called _community champions_, and businesses sponsoring the Foundation.
+The votes will be split evenly between community and businesses to fairly represent both sides.
+
+### Package Hosting
+
+NXSF will provide a free Onyx package hosting platform.
+
+To be eligeble for hosting, a package shall have an OSI-approved license.
+
+NXSF will provide funding for packages both based on the [source-on-demand](/posts/2020-08-16-system-programming-in-2k20/#source-on-demand) model and selectively chosen by a Foundation committee.
+
+In addition to monetary funding, NXSF would also sponsor recurring security auditions of selected packages.
+
+### Funding the Ecosystem
+
+Apart from funding packages, the Foundation will sponsor projects and events related to Onyx, including teaching conferences, teaching materials, integrations etc.
+
+----
+
+Onyx is the perfect balance between productivity and performance, a language understandable well both by humans and machines.
+
+Thanks to powerful abstraction mechanisms and inference, the areas of appliance are truly endless.
+I heartfully believe that Onyx may be that new lingua franca for decades until the humanity learns to transfer thoughts directly into machines.
+
+Follow [NXSF](https://nxsf.org) to stay updated, and...
+
+----
+
+::: hero
+
+<big>Enjoy the performance.</big>
+
+:::
+
+----
+
+P.S: Until the Foundation is officialy established, you may consider [sponsoring me directly]().
