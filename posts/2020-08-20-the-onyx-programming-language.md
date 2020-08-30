@@ -69,12 +69,10 @@ Onyx contains several **utility types**, such as unions, variants, tuples, anony
 
 Exceptions are designed to be truly **zero-cost** to enable exception flow in Onyx programs.
 
-### Examples
+### Hello, world!
 
 Let's jump into some code samples.
 This would give a brief overview of how Onyx programs look like.
-
-#### Hello, world!
 
 This is a very basic program written in Onyx:
 
@@ -122,7 +120,7 @@ Thankfully, this tedious operation is likely to be automatically handled by a hi
 Note that Onyx does not have any implicit `__onyx_main` function, which effectively restricts non-trivial automatic static variable initialization and finalization.
 But in return, it makes the emitted code predictable and portable.
 
-#### Using a standard library
+### Using a Standard Library
 
 An Onyx compiler is not required to implement any sort of OS-dependent standard library.
 Instead, the standard library Standard is specified elsewhere (spoiler alert: by [the Onyx Software Foundation](#the-onyx-software-foundation)).
@@ -156,7 +154,7 @@ Notice the `w` part?
 The pointer is now writeable.
 And it is perfectly legit to pass a writeable pointer as a read-only argument: it would be coerced down to a read-only pointer within the callee.
 
-#### Exceptions
+### Exceptions
 
 We had to wrap the `Std.puts` call into the `try` block, as it could throw some system exception.
 The cause is that an `export`ed function must guarantee never to throw an exception, that's why we wrapped it.
@@ -314,7 +312,7 @@ export void main() {
 
 Now we can inspect the exception backtrace!
 
-#### An HTTP server example
+### An HTTP Server Example
 
 It is considered a good tone to demonstrate how to build a simple echoing HTTP web server in your language.
 This would also be my "sorry" for the big-ass `Stack` implementation above.
@@ -372,7 +370,7 @@ Thanks to powerful abstractions and type inference, you won't need to manually u
 Oh, by the way, did you notice the `\@{{ e }}` thing?
 It was me, <s>Dio</s> macro!
 
-#### Macros
+### Macros
 
 A fundamental feature of Onyx is macros.
 Macro is a Lua code generating Onyx code (or another macro code).
