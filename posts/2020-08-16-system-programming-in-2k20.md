@@ -92,6 +92,8 @@ Funnily enough, an experienced C++ programmer shall aware of not what C++ is, bu
 That said, developing on C++ is pain, and it is easy to shoot your lower parts off by, say, returning a lambda with a closured local variable.
 Of course, it is possible to have a fancy third-party UB checking tool, but such a tool would never be perfect considering the amount of UB in the language itself.
 
+![Relatable AF](../../../public/img/posts/2020-08-16-system-programming-in-2k20/thinking-about-meme.jpg =100%x)
+
 Another Unix anachronism C++ inherits is the backwards compatibility with a bitter taste of Postel's law: "most compilers implement that feature in different ways, let's put it into the language after a short thought with design averaging from existing implementations!".
 One may argue that backwards compatibility is a good thing, but let me postpone this discussion for a [later section](#backwards-compatibility) of this article.
 
