@@ -719,38 +719,46 @@ Finally, it's the time to proudly announce another language I've come up with, a
 
 So, what are the goals defined for the new language?
 
-⚠️ **NOTE:** The goals are to be better formulated.
+  * Developer friendliness:
 
-  * Friendliness
-    * Infer types and more (e.g. `def foo` and not `def proc foo`)
-    * Safe and defined behaviour
-    * Allowance for unsafe behaviour compensated with powerful abstraction mechanisms
-    * Human-friendly object abstractions (traits, classes);
-    math abstractions like in functional programming aren't friendly, but still required in some cases (Onyx has `pure`, for example, and lambdas)
-    * But math-like fundamental design where you can infer a rule without the need to always keep it in head, thanks to a set of basic principles
-    * Unopinionated, so a user is free to choose the best way that suits their needs.
-    Of course, absolute unopinionate is impossible, because there are grammars defined, but it tries to be as much flexible as possible.
+    * Have fundamental design with shared concepts and minimum exclusive cases to keep in mind.
+    * Infer developer intentions as much as possible, unless ambiguous.
+    * Guarantee safe, defined behaviour by default, but still provide tools to write and abstract away unsafe code when needed.
+    * Provide human-friendly object abstractions such as classes, but also contain a number of essential math abstractions to be used when required.
 
-  * Performance, so they don't choose another language because it's faster.
-  It shall be the final destination.
-  System programming and performance tuning things like pointer arithmetics, alignment, fencing, inline assembly, no hidden control flow.
+  * Tools for optimal performance.
+  By default, the code written in this language would be suboptimal, but with right tooling it is possible to write perfectly optimized code and abstract it away.
+  With that, a developer would not have to choose another language just because it's faster.
+  The requirement implies:
 
-  * Absolute platform agnosticism, but openess to things often present in platforms, i.e. generalization.
-  Language is merely a higher-level assembler, no OS is taken into consideration
+    * Access to raw machine instructions, i.e. inline assembly.
 
-  * Unix-way of tooling, where can easily replace tooling when needed.
-  This implies standardization of the tooling.
+    * Pointer arithmetic and alignment.
 
-  * Foundation for rich libraries: the language shall allow ease of reuse of third-party code
+    * Control over memory ordering.
 
-  * Maintainability, so a program can be maintained for longer time.
-  This includes problems of inheritance, function overloading etc.
-  (solved with traits, for example).
+    * WYSIWYG in terms of clearly understanding what code would compile into.
 
-Apart from the language, there are also goals for the ecosystem:
+  * Absolute platform agnosticism with the generalization of instructions shared by different instruction sets.
+  The languages should not know anything about operating systems, but common things like integer arithmetics should be abstracted into objects.
+  Modern instructions should be addressed, such as tensors and [brain floats](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format).
 
-  * Standardization;
-  * Funding;
+  * Long-term maintainability of programs written in the language.
+  This includes problems of inheritance, function overloading and so on.
+
+As it turned out, a strong foundation for the language is also needed for success.
+The foundation goals are:
+
+  * Standardize as much as possible, including:
+
+    * An implementation binary interface and capabilities.
+
+    * Package management.
+
+    * API documentation format.
+
+  * Provide proper funding for the ecosystem, including rewarding package authors.
+  This is where the [source-on-demand](#source-on-demand) model could be applied.
 
 ----
 
@@ -768,8 +776,8 @@ Meet **Onyx**, the programming language I've been working on for a pretty long t
 
 > Onyx is a general-purpose statically typed programming language suitable both for application and system programming.
 
-Onyx meets all of the goals listed above and even more!
-Read more about it in [the Onyx Programming Language](/posts/2020-08-20-the-onyx-programming-language) post.
+Onyx meets all of the goals listed above and even more with the upcoming Onyx Software Foundation.
+Read more about it in the next [Onyx Programming Language](/posts/2020-08-20-the-onyx-programming-language) article.
 
 ----
 
