@@ -768,6 +768,8 @@ Incapsulation at its finest!
 
 ### More Highlights
 
+Some more highlights of the language's features:
+
   * SIMD vectors and matrices built-in with literals.
   It looks like this:
 
@@ -858,6 +860,39 @@ Incapsulation at its finest!
       # This method is only declared
       # for strings, not arrays.
       decl get_char(position : UBin32)
+    end
+    ```
+
+  * `Any` real type implies a variant of all possible types.
+  In practice, it is often constrained by an imaginary type to reduce the number of contained options and define behaviour.
+  For example:
+
+    ```text
+    trait Logger
+      decl log()
+    end
+
+    class Processor
+      # Stores a variant of all possible
+      # `Logger` implementations.
+      let logger : Any~Logger
+
+      def process()
+        # This is still any logger
+        logger : Any~Logger
+
+        # Thanks to its imaginary type,
+        # can call the declared method
+        logger.log()
+      end
+    end
+
+    struct MyLogger
+      derive Logger
+        impl log()
+          # Some implementation
+        end
+      end
     end
     ```
 
