@@ -250,7 +250,7 @@ No Patreon sponsorship or non-profit salary can buy me a house.
 Until then, I want to be able to pay my bills and maybe purchase a newer graphics card.
 In return, you get a chance to be immortalized as a visioner invested in a better future.
 
-Follow me on [Twitter](https://twitter.com/vladfaust) and [GitHub](https://github.com/vladfaust), and also follow [NXSF](https://nxsf.org/) and [FancySoft](https://fancysoft.xyz/) to stay updated about the progress made.
+Follow me on [Twitter](https://twitter.com/vladfaust) and [GitHub](https://github.com/vladfaust), join the conversation on the [forum](https://forum.onyxlang.com) and also follow [NXSF](https://nxsf.org/) and [FancySoft](https://fancysoft.xyz/) to stay updated about the progress made.
 
 Oh yes, there is also an official (i.e. NXSF-governed) standard planned on the language's mascot.
 It will be a [panther-girl](https://en.wikipedia.org/wiki/Catgirl) named Onyx-chan. Nya! 🐾
