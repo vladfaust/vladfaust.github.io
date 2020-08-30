@@ -272,6 +272,14 @@ I want to be able to create mainstream GUI applications, microservices and 3D en
 
 You can find more on why not Julia [here](https://www.zverovich.net/2016/05/13/giving-up-on-julia.html), with critique addressed [here](https://www.reddit.com/r/Julia/comments/629qkz/about_a_year_ago_an_article_titled_giving_up_on/).
 
+Check out [another hilarious post](https://discourse.julialang.org/t/get-it-together-guys/27826) on this matter.
+I personally love this quote:
+
+> Get a job! Then paint your masterpiece.
+
+Telling that to a scientific language developed in MIT by scientists...
+Well, more on that later.
+
 #### Nim
 
 [Nim](https://nim-lang.org/) is a magnificent piece of art.
