@@ -12,7 +12,7 @@ Find out how you can sponsor the future, and how many hours does it take to crea
 <h2>TL; DR;</h2>
 
 I wAnT yOuR mOnEy! 🤑
-Pledge to my will at [Patreon](https://www.patreon.com/vladfaust) or buy me a beer at [BMC](https://www.buymeacoffee.com/vladfaust)! 😂😂😂
+Pledge to my will on [Patreon](https://www.patreon.com/vladfaust) or buy me a coffee at [BMC](https://www.buymeacoffee.com/vladfaust)! 😂😂😂
 
 ----
 
@@ -129,75 +129,64 @@ However, this would only happen when the language moves to the alpha stage (see 
 
 Right now, Onyx is in the pre-alpha stage.
 Nothing is publicly stable, work-in-progress etcetera.
-
-::: off
-
-Note that theoretically I could've tried applying to Open Collective right now, but:
-
-  1. It implies free-will donations, but what I'm proposing here is clearly a purchase;
-
-  1. I don't think Onyx is currently "popular" enough;
-
-  1. They take **huge** commissions.
-
-:::
-
-----
-
 But I still need to pay my bills.
 And as I haven't got a real job for a long, long time, my financial cushion is relatively thin.
 
-As a copyright holder, I'm planning on licensing the Onyx Standard Specification and auxiliary standards with a free, open-source license requiring attribution.
+As a copyright holder, I'm planning on licensing the specifications I've been working on with a free, open-source license requiring attribution.
 
-Therefore, I can offer you, a potential sponsor, a **perpetual**\* attribution in the standards I'll be working on <u>during the pre-alpha development stage</u>.
-Your name or company logo with an optional link would be put into according "early contributors" sections of the standards.
+That said, I can offer you, a potential sponsor, a **perpetual**\* attribution in the Onyx programming language standard specification.
+Your name or company logo with an optional link will be put into the according Early Backers section of the Standard.
 
 \* As long as my attribution is required.
-For example, if a standard is rewritten from scratch by an NXSF committee without infringing my patent rights, it then stops being a derivation of my work.
+For example, if the Standard is rewritten from scratch by an NXSF committee without infringing my patent rights, it then stops being a derivation of my work.
 
 ### The Dark Scheme
 
-First of all, what I'm proposing is not a _donation_.
-It is a _purchase_ of placement in my attribution texts, a _sponsorship contribution_.
+According to the [roadmap](https://nxsf.org/), during the Pre-alpha stage no donations are accepted by NXSF.
+Instead, you can donate directly to me, Vlad Faust, as I am effectively being the single developer thereof.
+Note that these donations would not be tax-exemptive.
 
-Of course, you're free to pitch your ideas informally, but you will not have any voting rights in the standards development with this sponsorship.
-
-----
-
-There are three sponsorship tiers:
-
-  1. Individual contribution: from $25 per month (compensates half an hour of my work).
-  You're attributed with your name or nickname.
-
-  1. Individual contribution with a link: from $100 per month (compensates two hours of my work).
-  Same as previous, but also with your custom link.
-
-  1. Business contribution: from $500 per month (compensates ten hours of my work).
-  Your company's logo and link are attributed.
+Also, note that the Pre-alpha stage implies no code contributions accepted officially.
+Of course, you're free to pitch your ideas informally (e.g. via [Twitter](https://twitter.com/vladfaust) or the [forum](https://forum.onyxlang.com)), but you will not have any voting rights in any of standards development during this time.
 
 ----
 
-I want to incentivize early contributions, so the <s>pyramind</s> scheme is as follows.
+Donations made to me during this period accumulate, and the resulting sum defines the tier of your attribution.
 
-I learned the hard way that estimating time on completing such a big project as a <big>language specification</big> is _quite_ hard.
-Nonetheless, I'm planning to move on to the alpha stage in **3-6 months** from today (August 27^th^ 2020).
+  1. From $25.
+  You're attributed with your name in the Early Individual Backers section.
 
-The earlier you contribute, the more belief you have in me, the more you shall be rewarded.
-And higher reward means higher placement in the contributors list!
+  1. From $100.
+  You're attributed with a custom link in the Early Individual Backers section.
 
-The placement of your attribution depends on your _contribution score_, which is based on the amount you've contributed.
+  1. From $500.
+  Your company's logo and link are attributed in the Early Business Backers section.
+
+Individual tier backers are listed separately from Business tier backers.
+
+----
+
+I also want to incentivize early backers, so the <s>pyramind</s> scheme is as follows.
+
+I learned the hard way that estimating time on completing such a big project as a language specification is _quite_ hard.
+Nonetheless, I'm planning to move on to the alpha stage in **3-5 months** from today (August 27^th^ 2020).
+
+The earlier you donate, the more belief you have in me, the more you shall be rewarded.
+And higher reward means **higher placement in the backers list**!
+
+The placement of your attribution depends on your _donation score_, which is based on the amount you've donated.
 Each month from today until the alpha stage, the score multiplier is reduced proportionally.
-The multiplier stays the same for you throughout the months if you contribute sequentially, i.e. without cancellations.
+The multiplier stays the same for you throughout the months if you donate sequentially, i.e. without cancellations.
 
 ::: spoiler An example
 
 Let's _imagine_ that alpha stage comes December 13^th^ 2020.
 That means that since September 1^st^ 2020, **3 full months** passed.
-The contributions are made 1^st^ of each recurring month.
+The donations are made 1^st^ of each recurring month.
 
 <div class="table-wrapper">
 
-Month a contribution was made | Contribution score multiplier{style="width: 50%"}
+Month a donation was made | Donation score multiplier{style="width: 50%"}
 --- | ---
 September | `1`
 October | `(1 - 1/4) = 3/4`
@@ -208,26 +197,21 @@ December | `(1 - 3/4) = 1/4`
 
 If Jake began their sponsorship in September with $100 per month without cancellations, his final score would be `100 * 1 + 100 * 1 + 100 * 1 + 100 * 1 = 400`.
 
-If John contributed $100 once in October, then skipped November and contributed the same $100 in December (as the hype grows), his final score would be `100 * (3 / 4) + 100 * (1 / 4) = 100`.
+If John donated $100 once in October, then skipped November and donated the same $100 in December (as the hype grows), his final score would be `100 * (3 / 4) + 100 * (1 / 4) = 100`.
 
-As a result, John's placement would be lower than Jake's in the contributors list.
+As a result, John's placement would be lower than Jake's in the backers list.
 
-In case of argument, the day a contribution was made matters: making a contribution on 3^rd^ gives more score than on 5^th^.
+In case of argument, the day a donation was made matters: making a donation on 3^rd^ gives more score than on 5^th^.
 
 :::
 
-
-Note that to be actually listed in the contributors list, you have to contribute the minimum corresponding sponsorship tier amount **at least once** during the pre-alpha stage.
-For example, even if you're continuously sponsoring with $24 per month, but never contributed $25+, your name will not be listed.
-
-Also, note that individual tier contributors are listed separately from business tier contributors.
-
 ### My Soundcloud
 
-You're welcome to become my patron on [Patreon](https://www.patreon.com/vladfaust) or [BuyMeA<s>Beer</s>Coffee.com](https://www.buymeacoffee.com/vladfaust).
-Neither is preferred, choose whichever you like most.
-I'm not planning on creating paid posts etc.
-The difference is that BMC only has a single tier, but allows one-time contributions, which are counted as well.
+You're welcome to become my patron on [Patreon](https://patreon.com/vladfaust) or buy me a coffee at [BuyMeACoffee](https://buymeacoffee.com/vladfaust).
+
+Donations made on Patreon imply exclusive Forum and Discord roles, and Onyx Visioner merch.
+BMC donations do not have those benefits but can be smaller and one-time.
+Ideal if you want to just tip me a couple of times.
 
 Direct Bitcoin donations are also accepted, but they are not eligible for listing.
 
@@ -237,8 +221,7 @@ I want to assure you that I have no long-term plans on living on these sponsorsh
 I'm neither a [YandereDev](https://knowyourmeme.com/memes/people/yanderedev) nor some [Alex Medvednikov](https://vlang.io/).
 The sponsorship opportunity is in effect exclusively during the pre-alpha stage.
 
-Once the Foundation is established, you'll be guided to put your money there instead, in the form of donations.
-This implies tax exemption and voting rights.
+Once the Foundation is established, you'll be guided to put your money there instead, in the form of donations, which implies tax exemption and proper voting rights.
 
 [Fancy Software LLC](https://fancysoft.xyz) is a for-profit company and I as no other else want Onyx to be complete, so I can start working on my premium packages, self-hosted, gaming and AI products.
 No Patreon sponsorship or non-profit salary can buy me a house.
