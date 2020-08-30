@@ -2,7 +2,7 @@
 title: The Onyx Programming Language
 location: Moscow, Russia
 templateEngineOverride: md
-excerpt: System programming seems to be much harder than application programming. Why is that and how to overcome this?
+excerpt: In the previous article I successfully justified my desire to build yet another system programming language. Unlike others, I want to do it right from the very beginning.
 cover: /public/img/onyx-logo-white-background.png
 ogType: article
 ---
