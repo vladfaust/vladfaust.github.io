@@ -2,7 +2,7 @@
 title: Sponsoring Onyx
 location: Moscow, Russia
 excerpt: Standardizing and implementing a system programming language is hard, but you can help!
-cover: /public/img/posts/2020-08-27-sponsoring-onyx/think-about-it-meme.jpg
+cover: /public/img/posts/2020-08-27-sponsoring-onyx/i-need-healing.jpg
 ogType: article
 ---
 
