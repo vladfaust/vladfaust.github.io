@@ -761,7 +761,25 @@ end
 ```
 
 Luckily, no changes have to be made to the `do_draw()` function, because the compiler treats the argument solely as `Drawable2D`, and calling `draw()` on it always calls `Drawable2D:draw()`!
-Again, changing the type from outside would not break a callee.
+Thus, changing the type from outside would not break a callee.
+
+The `Point` type now has `draw2d` and `draw3d` methods.
+Of course, calling `Point:draw()` would not work anymore, because we've moved the implementation.
+But it is still possible to restrict a `Point` to the required trait and call `draw()` on it.
+For example:
+
+```text
+final p = Point()
+
+# p.draw() # Panic! Ambiguity
+
+p.draw2d() # OK, draw 2D
+p~Drawable2D.draw() # OK, draw 2D
+
+p.draw3d() # OK, draw 3D
+p~Drawable3D.draw() # OK, draw 3D
+```
+
 Incapsulation at its finest!
 
 ### More Highlights
