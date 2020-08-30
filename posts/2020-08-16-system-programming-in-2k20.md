@@ -2,7 +2,7 @@
 title: System Programming in 2k20
 location: Moscow, Russia
 excerpt: System programming seems to be much harder than application programming. Why is that and how to overcome this?
-cover: /public/img/posts/2020-08-16-system-programming-in-2k20/rust-is-simple-3.jpg
+cover: /public/img/posts/2020-08-16-system-programming-in-2k20/state-therof.jpg
 ogType: article
 ---
 
