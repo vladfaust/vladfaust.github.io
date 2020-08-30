@@ -640,6 +640,132 @@ The algorithm is to evaluate immediate macros (e.g. `{% %}`) immediately once th
 Apart from simply `print "Debug"`, Lua contains powerful debugging facilities, e.g. `debug()`.
 This means that you can debug your compilation, even with breakpoints from an IDE!
 
+### Complex Types
+
+Onyx type system comprises two types of an object: real and imaginary. Hence the name "complex".
+
+Real type is the actual type with a concrete memory layout, while the imaginary type is how a compiler traits this object.
+
+Together with trait types, this approach meets the maintainability goal [set](/posts/2020-08-16-system-programming-in-2k20/#the-new-beginnings) in the previous article.
+
+Consider the following example:
+
+```text
+trait Drawable2D
+  decl draw()
+end
+
+struct Point
+  derive Drawable2D
+    impl draw()
+      # Draw the point
+    end
+  end
+end
+
+struct Line
+  derive Drawable2D
+    impl draw()
+      # Draw the line
+    end
+  end
+end
+
+def do_draw(x ~ Drawable2D)
+  x.draw()
+end
+```
+
+Within the `do_draw` function `x` initially has type `Undef~Drawable2D`, where `Undef` is the real type, and `Drawable2D` is the imaginary type.
+
+Having an `Undef` real type in an argument declaration implies that this argument is generic.
+In other words, for each unique real type specialization of `x`, the function would specialize once again.
+
+Let's modify the function a bit:
+
+```text
+def do_draw(x ~ Drawable2D)
+  {% print("Immediate: " ..
+    nx.ctx.x.real_type:dump()) %}
+
+  \{% print("Specialized: " ..
+    nx.ctx.x.real_type:dump()) %}
+end
+
+do_draw(Point())
+do_draw(Line())
+```
+
+The compiler would output the following:
+
+```text
+Immediate: Undef
+Specialized: Point
+Specialized: Line
+```
+
+We can see that `Undef` specialized into a concrete type in a function specialization.
+
+Would `x.draw()` work within such a function?
+Indeed it would because the imaginary type is set to `Drawable2D`.
+In other words, `x` has **behaviour** of `Drawable2D` and thus can be called its methods upon.
+
+It is still possible to operate on a real type in this case thanks to type information known at compile-time:
+
+```text
+def do_draw(x ~ Drawable2D)
+  \{% if nx.ctx.x.real_type == nx.lkp("Point") %}
+    # x : Point # Panic! It is still `Undef`
+    # x.point_specific_method # Panic!
+    (unsafe! x as Point).point_specific_method
+  \{% end %}
+end
+```
+
+`x.point_specific_method` would cause compiler panic, because it can not guarantee that this would work for every possible x **now and in the future**.
+This solves the potential issue when calling `do_draw` with a new type unexpectedly breaks the callee; in other words, incapsulation is preserved.
+
+The language contains some syntax sugar to simplify the example above:
+
+```text
+def do_draw(x ~ Drawable2D)
+  if x is? Point
+    x : Point # OK
+    x.point_specific_method
+  end
+
+  # # For the sake of scope incapsulation,
+  # # can not do that outside of the branch.
+  # x.point_specific_method # Panic!
+end
+```
+
+Imagine that we add another trait with the same declared function.
+It Onyx, the collision must be resolved, but the collided functions can still be called by their original names after restricting the caller's imaginary type.
+For example:
+
+```text
+trait Drawable3D
+  decl draw()
+end
+
+reopen Point
+  derive Drawable3D
+    impl draw() as draw3d
+      # Draw point in 3D
+    end
+  end
+
+  # Move the existing implementation
+  # under another name
+  moveimpl ~Drawable2D:draw() to draw2d
+end
+```
+
+Luckily, no changes have to be made to the `do_draw()` function, because the compiler treats the argument solely as `Drawable2D`, and calling `draw()` on it always calls `Drawable2D:draw()`!
+Again, changing the type from outside would not break a callee.
+Incapsulation at its finest!
+
 ### More Highlights
 
   * SIMD vectors and matrices built-in with literals.
