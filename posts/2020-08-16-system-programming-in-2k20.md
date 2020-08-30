@@ -80,9 +80,7 @@ C is excellent at its simplicity, but bigger projects require higher-level langu
 
 Ditto applies to C "replacements", such as [Ẕ̴̰̥̔͝i̷̥̣̍̓̉ġ̷̢̪͌̾́](https://ziglang.org/) and [Patreon-lang](https://vlang.io/).
 
-
 ### C++
-
 
 C++ is the grandfather of higher-level system programming.
 
