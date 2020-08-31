@@ -397,7 +397,7 @@ export void main() {
   unsafe! $puts("i = 0")
   unsafe! $puts("i = 1")
   unsafe! $puts("i = 2")
-end
+}
 ```
 
 That simple: the Lua code runs during compilation.
@@ -456,7 +456,7 @@ import "stdio.h"
 
 export void main() {
   unsafe! $printf(&"%d\n", @fib(10))
-end
+}
 ```
 
 In this example, `@fib(10)` would evaluate during compilation and emit a number literal `55`, so the code turns into simple `$printf(&"%d\n", 55)`.
