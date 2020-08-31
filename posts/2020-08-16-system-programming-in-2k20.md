@@ -282,9 +282,18 @@ Well, more on that later.
 
 [Nim](https://nim-lang.org/) is a magnificent piece of art.
 
-But it has a Python-like indentation-based syntax with less flexible `import` semantics.
-It lacks proper object-oriented features like interfaces and mixins.
-And it does not have lower-level features like pointer arithmetics, address spaces etc.
+But:
+
+  * It has a Python-like indentation-based syntax with less flexible `import` semantics.
+
+  * It lacks proper [object-oriented features](https://nim-lang.org/docs/tut2.html#object-oriented-programming) like interfaces and mixins.
+
+  * It does not have lower-level features like pointer [alignment](https://forum.nim-lang.org/t/2976), address spaces etc.
+
+  * It [does not have explicit safety concepts](https://github.com/nim-lang/Nim/wiki/Unofficial-FAQ#is-nim-unsafe).
+
+That said, you can relatively easily wrap a C/C++ library in Nim for lower-level features such as GPU programming, but who writes that C/C++ library?
+In that sense, Nim is similar to Python and other higher-level languages with FFI.
 
 #### Crystal
 
