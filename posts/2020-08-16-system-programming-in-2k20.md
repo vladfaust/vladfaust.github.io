@@ -280,20 +280,19 @@ Well, more on that later.
 
 #### Nim
 
-[Nim](https://nim-lang.org/) is a magnificent piece of art.
-
-But:
-
-  * It has a Python-like indentation-based syntax with less flexible `import` semantics.
-
-  * It lacks proper [object-oriented features](https://nim-lang.org/docs/tut2.html#object-oriented-programming) like interfaces and mixins.
-
-  * It does not have lower-level features like pointer [alignment](https://forum.nim-lang.org/t/2976), address spaces etc.
-
-  * It [does not have explicit safety concepts](https://github.com/nim-lang/Nim/wiki/Unofficial-FAQ#is-nim-unsafe).
-
-That said, you can relatively easily wrap a C/C++ library in Nim for lower-level features such as GPU programming, but who writes that C/C++ library?
+[Nim](https://nim-lang.org/) claims that it is a system programming language, but it currently lacks support for some lower-level features like alignment and address spacing.
+One still has to wrap a C/C++ library or write inline C/C++ for low-level programming, e.g. on a GPU.
 In that sense, Nim is similar to Python and other higher-level languages with FFI.
+
+In addition to that,
+
+  * Nim lacks proper [object-oriented features](https://nim-lang.org/docs/tut2.html#object-oriented-programming) like interfaces and mixins.
+  OOP is crucial for a big project, change my mind.
+
+  * Nim [does not have explicit safety concepts](https://github.com/nim-lang/Nim/wiki/Unofficial-FAQ#is-nim-unsafe).
+
+  * Nim has Python-like indentation-based syntax with lines ending in `=` and `:`, which is **subjectively** worse than Ruby-like syntax.
+  Also the `import` semantic inherited from Python is fundamentally different from Ruby's `require`, and all the macros and generics semantics to be proposed becomes cumbersome to use with `import`s.
 
 #### Crystal
 
