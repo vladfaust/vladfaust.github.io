@@ -635,6 +635,8 @@ alias UIBin&lt;*>, UBin&lt;*> = IBin&lt;false, *>
 Macro code can generate other macro code.
 The algorithm is to evaluate immediate macros (e.g. `{% %}`) immediately once they are met in the code by some lexer, but evaluate delayed macros (e.g. `\{% %}`) only when the time is right, for example, per specialization.
 
+This allows to avoid embarrassing situations like [this](https://github.com/diesel-rs/diesel/blob/master/diesel/src/macros/tuples.rs) in Rust.
+
 Apart from simply `print "Debug"`, Lua contains powerful debugging facilities, e.g. `debug()`.
 This means that you can debug your compilation, even with breakpoints from an IDE!
 
