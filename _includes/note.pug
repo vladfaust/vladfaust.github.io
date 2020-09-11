@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+    include /head.pug
+
+    //- Styles
+    link(rel='stylesheet', href='/public/styles/post.css')
+    link(rel='stylesheet', href='https://unpkg.com/prismjs@1.20.0/themes/prism.css')
+  body
+    include /header.pug
+
+    main.line-numbers
+      h1= title
+      p.meta
+        time.pubtime(datetime=page.date.toISOString())= page.date.toDateString()
+        if location
+          | ,&nbsp;
+          = location
+      hr
+      article(class=(asciiDoctor ? "asciidoctor" : ""))!= content
+
+    include /footer.pug

@@ -6,15 +6,19 @@
   "private": "true",
   "scripts": {
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "dev": "npx concurrently \"npx gulp\" \"npx @11ty/eleventy --serve\"",
+    "build": "npx gulp processAdoc && npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "Vlad Faust <mail@vladfaust.com>",
   "license": "None",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@asciidoctor/gulp-asciidoctor": "^2.2.5",
+    "asciidoctor.js": "1.5.9",
+    "gulp-gray-matter": "^3.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-tap": "^2.0.0",
     "markdown-it-anchor": "^5.3.0",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-container": "^3.0.0",

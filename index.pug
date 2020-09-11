@@ -1,8 +1,5 @@
 ---
 eleventyExcludeFromCollections: true
-pagination:
-  data: collections.all
-  size: 2
 title: "Vlad Faust Blog"
 titleNoAppend: true
 description: "Vlad Faust's personal blog"
@@ -20,11 +17,18 @@ html(lang='en')
     include /header.pug
 
     main
-      h2 Recent posts
+      h2 Articles
       ul.posts
-        each post in collections.all.reverse().filter((post) => !post.data.hidden)
+        each post in collections.post.reverse().filter((post) => !post.data.hidden)
           li
             span.date= post.date.toDateString()
             a.title(href=post.url)= post.data.title
+
+      h2 Notes
+      ul.notes
+        each note in collections.note.reverse().filter((note) => !note.data.hidden)
+          li
+            span.date= note.date.toDateString()
+            a.title(href=note.url)= note.data.title
 
     include /footer.pug
