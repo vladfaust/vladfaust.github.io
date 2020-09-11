@@ -13,9 +13,11 @@
   "author": "Vlad Faust <mail@vladfaust.com>",
   "license": "None",
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@asciidoctor/gulp-asciidoctor": "^2.2.5",
     "asciidoctor.js": "1.5.9",
+    "gulp": "^4.0.2",
     "gulp-gray-matter": "^3.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-tap": "^2.0.0",
