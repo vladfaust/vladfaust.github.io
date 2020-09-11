@@ -1,0 +1,143 @@
+---
+title: Exporting from Onyx
+---
+
+:source-highlighter: highlightjs
+
+In Onyx, you may `export` a C entity from within an Onyx source file.
+Later in the Onyx context, the entity is treated as if it was imported directly from a C header.
+
+Unlike in raw C headers, an `export` statement is written in some mix of C with Onyx, allowing Onyx annotations, Onyx macros and having function bodies written in Onyx.
+
+Normally, an `export` statement uses the ISO C syntax, and C vendor extensions support is undefined.
+It is recommended to make use of Onyx annotations instead, which may be converted in accordance with a target vendor's semantics.
+To achieve that, an Onyx implementation should maintain some sort of mapping between vendor C extensions and according Onyx semantics.
+
+For example, FNX supports GCC extensions.
+Upon generating a header file from Onyx source, the C vendor option (`-c[-w]`) is respected, and Onyx annotations are converted to the vendor's.
+
+====
+.main.nx
+```
+# A struct comment.
+@[Pack]
+export struct struct_t {
+  // A variable comment.
+  @[Align<8>]
+  int foo;
+
+  double bar;
+};
+```
+
+After running `fnx doc -fh -c[-wgnu] main.nx`:
+
+.main.h
+```c
+// A struct comment.
+struct __attribute__ ((__packed__)) struct_t {
+  // My comment.
+  int foo __attribute__ ((aligned (8)));
+
+  double bar;
+}
+```
+====
+
+A C macro is treated as a freestanding entity, hence requiring a separate `export` entity per macro, for example:
+
+====
+.main.nx
+```nx
+export #ifdef __GNUC__
+@[AlwaysInline]
+export int foo();
+export #elif _MSC_VER
+@[AlwaysInline]
+export double foo();
+export #endif
+```
+
+After running `fnx doc -fh -c[-wgnu] main.nx`:
+
+.main.h
+```c
+#ifdef __GNUC__
+__attribute__((always_inline))
+int foo();
+#elif _MSC_VER
+__attribute__((always_inline))
+double foo();
+#endif
+```
+
+Note that both annotations have expanded to GCC attributes regardless of the `_MSC_VER` macro, because the behaviour is controlled by the `-c[-w]` option.
+To solve that, you either want to use explicit C annotations:
+
+.main.nx
+```nx
+export #ifdef __GNUC__
+export __attribute__((always_inline)) int foo();
+export #elif _MSC_VER
+export __forceinline double foo();
+export #endif
+```
+
+Or expand them in macros (which is equivalent to writing them explicitly):
+
+.main.nx
+```nx
+macro attr(vendor)
+  {{ nx.id["AlwaysInline"]:c(vendor) }}
+end
+
+export #ifdef __GNUC__
+export @attr("gnu") int foo();
+export #elif _MSC_VER
+export @attr("msvc") double foo();
+export #endif
+```
+====
+
+Sometimes it may become cumbersome to have a separate `export` statement per entity, like in the examples above.
+To deal with that, Onyx allows to export entire blocks in the same C-NX syntax.
+The same rules apply.
+
+====
+.main.nx
+```nx
+export {
+#ifdef __GNUC__
+  @[AlwaysInline]
+  int foo();
+#elif _MSC_VER
+  @[AlwaysInline]
+  double foo();
+#endif
+
+  // A C comment
+  @[NoInline]
+  void main() {
+    # Some Onyx code
+  }
+}
+```
+
+After running `fnx doc -fh -c[-wgnu] main.nx`:
+
+.main.h
+```c
+#ifdef __GNUC__
+__attribute__((always_inline))
+int foo();
+#elif _MSC_VER
+__attribute__((always_inline))
+double foo();
+#endif
+
+// A C comment
+void main() __attribute__((noinline));
+```
+====
+
+It is common to have entire files written in this manner when tight interoperability with C is implied, usually with an `.cnx` extension.
