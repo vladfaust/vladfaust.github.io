@@ -998,5 +998,3 @@ Visit [nxsf.org](https://nxsf.org) to stay updated, and...
 :::
 
 ----
-
-P.S: Until the Foundation is officially established, you may consider [sponsoring me directly](/posts/2020-08-27-sponsoring-onyx/) and joining the conversation on the [forum](https://forum.onyxlang.com).
