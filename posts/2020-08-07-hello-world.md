@@ -54,7 +54,7 @@ Throughout the next two years, I've developed a number of very useful shards:
   * [Migrate](https://github.com/vladfaust/migrate.cr)
   * [Stripe](https://github.com/vladfaust/stripe.cr)
 
-I even managed to build my [own web framework](https://onyxframework.org/) featuring a [REST server](https://onyxframework.org/http), a database-agnostic [SQL ORM](https://onyxframework.org/sql) and even an [EDA platform](https://onyxframework.org/eda)!
+I even managed to build my [own web framework](https://onyxframework.com/) featuring a [REST server](https://onyxframework.com/http), a database-agnostic [SQL ORM](https://onyxframework.com/sql) and even an [EDA platform](https://onyxframework.com/eda)!
 I've also built a (now defunct) [Crystal Jobs](https://github.com/crystaljobs) website and the [RealWorld implementation](https://github.com/vladfaust/crystalworld) in Crystal.
 
 Unfortunately <s>for Crystal</s>, I've left the Crystal ecosystem, because this is not the language I've always dreamt of.

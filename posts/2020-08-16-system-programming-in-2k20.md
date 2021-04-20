@@ -411,7 +411,7 @@ I used to maintain a [number](https://github.com/vladfaust?tab=repositories&q=&t
 I enjoyed writing [documentation](http://github.vladfaust.com/mini_redis/index.html) and [compiling changelogs](https://github.com/vladfaust/mini_redis/releases/tag/v0.2.0).
 I even enjoyed [replying to issues](https://github.com/vladfaust/unity-wakatime/issues/25), to reveal [unexpected use-cases](https://github.com/vladfaust/migrate.cr/issues/12), [add new features](https://github.com/vladfaust/unity-wakatime/pull/11) and [squash bugs](https://github.com/vladfaust/unity-wakatime/pull/23) together.
 
-The greatest project of mine in Crystal was the [Onyx Framework](https://onyxframework.org), a web framework comprised of a REST server, a database-agnostic SQL ORM and even EDA facilities.
+The greatest project of mine in Crystal was the [Onyx Framework](https://onyxframework.com), a web framework comprised of a REST server, a database-agnostic SQL ORM and even EDA facilities.
 I was planning to also implement a GraphQL framework module, and a convenient CLI to ease the development process.
 Objectively, it is more user-friendly, a better balanced between features and usability, than alternatives.
 
