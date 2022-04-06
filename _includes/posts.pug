@@ -1,0 +1,5 @@
+ul.posts
+  each post in [...collections.post].reverse().filter((post) => !post.data.hidden && post.date <= Date.now())
+    li
+      span.date= post.date.toDateString()
+      a.title(href=post.url)= post.data.title

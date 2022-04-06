@@ -1,8 +1,8 @@
 ---
 eleventyExcludeFromCollections: true
-title: "Vlad Faust Blog"
+title: "Vlad Faust"
 titleNoAppend: true
-description: "Vlad Faust's personal blog"
+description: "My personal website"
 cover: /public/img/me.jpg
 ---
 
@@ -12,23 +12,19 @@ html(lang='en')
     include /head.pug
 
     //- Styles
-    link(rel='stylesheet', href='/public/styles/index.css')
+    link(rel='stylesheet' href='/public/styles/index.css')
+    link(rel='stylesheet' href='/public/styles/posts.css')
+    link(rel='stylesheet' href='/public/styles/projects.css')
   body
     include /header.pug
 
     main
-      h2 Articles
-      ul.posts
-        each post in collections.post.reverse().filter((post) => !post.data.hidden)
-          li
-            span.date= post.date.toDateString()
-            a.title(href=post.url)= post.data.title
+      section#posts
+        h2 Recent blog posts
+        include /posts.pug
 
-      h2 Notes
-      ul.notes
-        each note in collections.note.reverse().filter((note) => !note.data.hidden)
-          li
-            span.date= note.date.toDateString()
-            a.title(href=note.url)= note.data.title
+      section#projects
+        h2 Project list
+        include /projects.pug
 
     include /footer.pug
