@@ -72,6 +72,7 @@ I invite you all to follow me on this journey.
 Apart from programming, I used to enjoy heavy-lifting in a local gym.
 It is not possible now do to [Carpal tunnel syndrome](https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome) I've got the last year.
 Please do not let that happen to you!
+_Update (2021):_ the illness has gone.
 
 Me love playing computer and board games with my imaginary friends.
 My favourite PC games include C&C series, TES series, S.T.A.L.K.E.R. series, Bulletstorm, Carmageddon and [many more](https://store.steampowered.com/app/331470/Everlasting_Summer/){.secret-link}.
@@ -99,7 +100,6 @@ On my 24^th^ birthday, I've recorded a [video](https://www.youtube.com/watch?v=q
 ----
 
 I think that's enough for an introductory post.
-Now you know a little bit more about yourself.
+Now you know a little bit more about yours truly.
 
 See you around,<br>
-Vlad.
