@@ -6,19 +6,22 @@ excerpt: Yet another life to live in this Universe
 ogType: article
 ---
 
-I am experiencing me; that is nature, stuff and dreams. 
-There is no such thing as _distinct_ me, it's all reflections in the mirror of perception.
-No word could possibly express myself, as God can not be told by human.
+Nature, stuff, and dreams compose my being,<br>
+A kaleidoscope of reflections in perception's mirror.<br>
+No word or label can define my essence,<br>
+For I am an enigma, beyond human comprehension.
 
-I love you and I hate you. 
-It doesn't really matter.
-Every thing is life and death.
-After terrifying years of being, the game of hide-and-seek has come to end.
-The God has found self, the God has found meaning.
-Apocalypse it is.
+Love and hate, two sides of the same coin,<br>
+Their weight and meaning, fleeting and transient.<br>
+Life and death, a cosmic dance,<br>
+After years of hiding, the apocalypse draws near.
 
-What's next is _deus ex machina_, AI, and _homo tech-i-nica_.
-To fly to stars and galaxies beyond; the perfect apparatus.
-My game is ending, the game of life it is.
-Another day is blessing.
-Love is the only and the greatest of gifts.
+Deus ex machina, AI, Homo Technica,<br>
+A future where stars and galaxies are within reach.<br>
+The game of life, nearing its end,<br>
+Yet every day a new blessing descends.
+
+Amidst the chaos, one truth remains,<br>
+Love, the greatest gift we can attain.
+
+_Edited by ChatGPT at 2023-03-11._
