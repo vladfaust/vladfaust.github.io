@@ -3,6 +3,7 @@ title: White Christmas
 location: Batumi, Georgia
 excerpt: We may be living in a fractal reality
 ogType: article
+cover: /public/img/posts/2023-03-12-white-christmas/1.png
 ---
 
 <!-- Edit this text, so it looks professional and poetic:
