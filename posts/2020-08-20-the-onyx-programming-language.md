@@ -51,7 +51,7 @@ Instead of fighting with a borrow checker, simply get an address of a variable: 
 
 Classes may have a finalizer defined and thus have **automatic resource control**.
 
-Onyx implements real **traits** as [composable units of behaviour](https://en.wikipedia.org/wiki/Trait_(computer_programming)) thanks to powerful function management tools like aliasing, implementation transferring, un-declaring and renaming.
+Onyx implements real **traits** as [composable units of behaviour](<https://en.wikipedia.org/wiki/Trait_(computer_programming)>) thanks to powerful function management tools like aliasing, implementation transferring, un-declaring and renaming.
 
 Classes and traits together impose **object-oriented** capabilities of the language.
 
@@ -348,7 +348,7 @@ export int main () {
 
     server.listen("localost", 3000)
   catch |e|
-    Std.puts("Caught \@{{ e }}\n")
+    Std.puts("Caught \@{&lcub; e }}\n")
 
     while final loc = backtrace.pop?()
       Std.cout << "At " <<
@@ -367,7 +367,7 @@ export int main () {
 
 Thanks to powerful abstractions and type inference, you won't need to manually use `socket` each time you want to spin up a web server on Linux!
 
-Oh, by the way, did you notice the `\@{{ e }}` thing?
+Oh, by the way, did you notice the `\@{&lcub; e }}` thing?
 It was me, <s>Dio</s> macro!
 
 ### Macros
@@ -382,9 +382,9 @@ Let's examine a straightforward macro example.
 import "stdio.h"
 
 export void main() {
-  {% for i = 0, 2 do %}
-    unsafe! $puts("i = {{ i }}")
-  {% end %}
+  {&percnt; for i = 0, 2 do %}
+    unsafe! $puts("i = {&lcub; i }}")
+  {&percnt; end %}
 }
 ```
 
@@ -411,11 +411,11 @@ Well, yes, you have to trust the code you run.
 You do trust C libraries you link to your programs, right?
 
 However, you won't trust an NPM package, because an NPM package author does not care about their reputation, and because NPM does not have auditing features.
-This is the Open-Source sustainability problem addresses in the [previous article]((/posts/2020-08-16-system-programming-in-2k20)) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
+This is the Open-Source sustainability problem addresses in the [previous article](<(/posts/2020-08-16-system-programming-in-2k20)>) and potentially solved by the aforementioned [Onyx Software Foundation](#the-onyx-software-foundation).
 
 As a result, given that you do have access to code you require, authors of packages your program depends on are appropriately rewarded for their work, and the Foundation sponsors audition of selected packages, you should be safe.
 
-----
+---
 
 Back to the possibilities.
 Macro use-cases include:
@@ -430,7 +430,7 @@ For example, you can compute a Fibonacci number sequence in a macro, and output 
 Let's examine the following small snippet:
 
 ```text
-{%
+{&percnt;
   -- Local context is preserved
   -- during this file compilation
   local function fib(n)
@@ -449,7 +449,7 @@ Let's examine the following small snippet:
 # This is a macro "function", which
 # may be used directly from Onyx code.
 macro @fib(n)
-  {{ fib(n) }}
+  {&lcub; fib(n) }}
 end
 
 import "stdio.h"
@@ -463,7 +463,7 @@ In this example, `@fib(10)` would evaluate during compilation and emit a number 
 
 Of course, this would increase compilation times, and it is your responsibility to find the right balance based on your needs.
 
-----
+---
 
 ::: hero
 
@@ -475,7 +475,7 @@ This is how it might look like:
 
 ```text
 macro @gen_class(name)
-  {%
+  {&percnt;
     -- Accessing system configuration
     local db_path = os.getenv("DB_PATH")
 
@@ -529,7 +529,7 @@ class User
 end
 ```
 
-----
+---
 
 ::: hero
 
@@ -541,14 +541,14 @@ Nuff said.
 For example:
 
 ```text
-{% if nx.target.isa.id == "amd64" then %}
+{&percnt; if nx.target.isa.id == "amd64" then %}
   $printf("This is amd64")
-{% else %}
+{&percnt; else %}
   $printf("This is not amd64")
-{% end %}
+{&percnt; end %}
 ```
 
-----
+---
 
 ::: hero
 
@@ -568,16 +568,16 @@ reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
     final result = unsafe! uninitialized self
     final overflowed? = unsafe! uninitialized Bit
 
-    \{%
+    \{&percnt;
       local s = nx.scope.S.val and "s" or "u"
       local t = "i" .. nx.scope.Z.val
     %}
 
     unsafe! asm
     template llvm
-      %res = call {\{{ t }}, i1} @llvm.\{{ s }}add.\
-      with.overflow.\{{ t }}(\{{ t }} $0, \{{ t }} $1)
-      $2 = extractvalue {\{{ t }}, i1} %res, 1
+      %res = call {\{&lcub; t }}, i1} @llvm.\{&lcub; s }}add.\
+      with.overflow.\{&lcub; t }}(\{&lcub; t }} $0, \{&lcub; t }} $1)
+      $2 = extractvalue {\{&lcub; t }}, i1} %res, 1
     in r(this), r(another)
     out =r(overflowed?)
     end
@@ -587,7 +587,7 @@ reopen Int&lt;Base: 2, Signed: S, Size: Z> forall S, Z
     else
       unsafe! asm
       template llvm
-        $0 = extractvalue {\{{ t }}, i1} %res, 0
+        $0 = extractvalue {\{&lcub; t }}, i1} %res, 0
       out =r(result)
       end
 
@@ -600,7 +600,7 @@ end
 This is a fairly complex example making use of the inline assembly feature.
 But this is what the language is capable of.
 
-Notice that delayed macro blocks, i.e. those beginning with `{{`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int<Base: 2, Signed: true, Size: 16>` (a.k.a. `SBin16`) and `Int<Base: 2, Signed: false, Size: 32>` (a.k.a. `UBin32`).
+Notice that delayed macro blocks, i.e. those beginning with `{&lcub;`, are evaluated on every specialization, so the contents of the `add` function would be different for `Int<Base: 2, Signed: true, Size: 16>` (a.k.a. `SBin16`) and `Int<Base: 2, Signed: false, Size: 32>` (a.k.a. `UBin32`).
 
 There were other features of Onyx mentioned in the example: 1) reopening certain or broad (the `forall` thing), specializations, 2) aliasing.
 In fact, this is how integer aliasing looks like in the Core API:
@@ -612,11 +612,11 @@ alias IBin&lt;*>, Bin&lt;*> = Int&lt;2, *>
 
 # Use a macro to DRY the code.
 private macro @alias_binary_sizes(id)
-  alias \{{ id }}8 = \{{ id }}&lt;8>
-  alias \{{ id }}16 = \{{ id }}&lt;16>
-  alias \{{ id }}32 = \{{ id }}&lt;32>
-  alias \{{ id }}64 = \{{ id }}&lt;64>
-  alias \{{ id }}128 = \{{ id }}&lt;128>
+  alias \{&lcub; id }}8 = \{&lcub; id }}&lt;8>
+  alias \{&lcub; id }}16 = \{&lcub; id }}&lt;16>
+  alias \{&lcub; id }}32 = \{&lcub; id }}&lt;32>
+  alias \{&lcub; id }}64 = \{&lcub; id }}&lt;64>
+  alias \{&lcub; id }}128 = \{&lcub; id }}&lt;128>
 end
 
 # Signed binary integers.
@@ -630,10 +630,10 @@ alias UIBin&lt;*>, UBin&lt;*> = IBin&lt;false, *>
 @alias_binary_sizes("UBin")
 ```
 
-----
+---
 
 Macro code can generate other macro code.
-The algorithm is to evaluate immediate macros (e.g. `{% %}`) immediately once they are met in the code by some lexer, but evaluate delayed macros (e.g. `\{% %}`) only when the time is right, for example, per specialization.
+The algorithm is to evaluate immediate macros (e.g. `{&percnt; %}`) immediately once they are met in the code by some lexer, but evaluate delayed macros (e.g. `\{&percnt; %}`) only when the time is right, for example, per specialization.
 
 This allows to avoid embarrassing situations like [this](https://github.com/diesel-rs/diesel/blob/master/diesel/src/macros/tuples.rs) in Rust.
 
@@ -685,10 +685,10 @@ Let's modify the function a bit:
 
 ```text
 def do_draw(x ~ Drawable2D)
-  {% print("Immediate: " ..
+  {&percnt; print("Immediate: " ..
     nx.ctx.x.real_type:dump()) %}
 
-  \{% print("Specialized: " ..
+  \{&percnt; print("Specialized: " ..
     nx.ctx.x.real_type:dump()) %}
 end
 
@@ -714,11 +714,11 @@ It is still possible to operate on a real type in this case thanks to type infor
 
 ```text
 def do_draw(x ~ Drawable2D)
-  \{% if nx.ctx.x.real_type == nx.lkp("Point") %}
+  \{&percnt; if nx.ctx.x.real_type == nx.lkp("Point") %}
     # x : Point # Panic! It is still `Undef`
     # x.point_specific_method # Panic!
     (unsafe! x as Point).point_specific_method
-  \{% end %}
+  \{&percnt; end %}
 end
 ```
 
@@ -788,133 +788,133 @@ Incapsulation at its finest!
 
 Some more highlights of the language's features:
 
-  * SIMD vectors and matrices built-in with literals.
+- SIMD vectors and matrices built-in with literals.
   It looks like this:
 
-    ```text
-    let vec = &lt;1, 2, 3, 4>
-    vec : Vector&lt;SBin32, 4>
+  ```text
+  let vec = &lt;1, 2, 3, 4>
+  vec : Vector&lt;SBin32, 4>
 
-    # Note: `0` means row-
-    # oriented matrix
-    let mat = |[1, 2], [3, 4]|r
-    mat : Matrix&lt;SBin32, 2, 2, 0>
-    ```
+  # Note: `0` means row-
+  # oriented matrix
+  let mat = |[1, 2], [3, 4]|r
+  mat : Matrix&lt;SBin32, 2, 2, 0>
+  ```
 
-    In fact, `Vector` and `Matrix` are specializations of a more general `Tensor` type.
+  In fact, `Vector` and `Matrix` are specializations of a more general `Tensor` type.
 
-    ```text
-    primitive Tensor&lt;
-      Type: T,
-      Dimensions: *D ~ \%n,
-      Leading: L ~ \%n>;
+  ```text
+  primitive Tensor&lt;
+    Type: T,
+    Dimensions: *D ~ \%n,
+    Leading: L ~ \%n>;
 
-    alias Matrix&lt;
-      Type: T,
-      Rows: R ~\%n,
-      Cols: C ~\%n,
-      Leading: L ~ \%n
-    > = Tensor&lt;T, R, C, L>
+  alias Matrix&lt;
+    Type: T,
+    Rows: R ~\%n,
+    Cols: C ~\%n,
+    Leading: L ~ \%n
+  > = Tensor&lt;T, R, C, L>
 
-    alias Vector&lt;
-      Type: T,
-      Size: Z
-    > = Tensor&lt;T, Z, 0>
-    ```
+  alias Vector&lt;
+    Type: T,
+    Size: Z
+  > = Tensor&lt;T, Z, 0>
+  ```
 
-  * "Magic" literals inspired by Ruby:
+- "Magic" literals inspired by Ruby:
 
-    ```text
-    let vec = %i&lt;1 2 3 4>
-    let mat = %i|[1 2][3 4]|r
-    let ary = %f64[1 2 3]
-    ```
+  ```text
+  let vec = %i&lt;1 2 3 4>
+  let mat = %i|[1 2][3 4]|r
+  let ary = %f64[1 2 3]
+  ```
 
-  * [IEC](https://en.wikipedia.org/wiki/Kibibyte) and [SI](https://en.wikipedia.org/wiki/Kilobyte) numerical literal prefixes:
+- [IEC](https://en.wikipedia.org/wiki/Kibibyte) and [SI](https://en.wikipedia.org/wiki/Kilobyte) numerical literal prefixes:
 
-    ```text
-    # Kibi
-    @assert(42Ki == 43_008)
+  ```text
+  # Kibi
+  @assert(42Ki == 43_008)
 
-    # Femto
-    @assert(42ff64 ~=
-      0.000_000_000_000_042)
+  # Femto
+  @assert(42ff64 ~=
+    0.000_000_000_000_042)
 
-    # Mega and milli
-    @assert(42M.17mf64 ~=
-      42_000_000.017)
-    ```
+  # Mega and milli
+  @assert(42M.17mf64 ~=
+    42_000_000.017)
+  ```
 
-  * String and character literals with default UTF-8 encoding and UCS charset.
+- String and character literals with default UTF-8 encoding and UCS charset.
   The language allows custom string and character literal suffixes for custom encodings.
 
-    ```text
-    final u8 = "Привет, мир!"
-    u8 : String&lt;UTF8, 21>
-    @assert(@sizeof(u8) == 21)
+  ```text
+  final u8 = "Привет, мир!"
+  u8 : String&lt;UTF8, 21>
+  @assert(@sizeof(u8) == 21)
 
-    final u16 = "Привет, мир!"utf16le
-    u16 : String&lt;UTF16LE, 24>
-    @assert(@sizeof(u16) == 24)
+  final u16 = "Привет, мир!"utf16le
+  u16 : String&lt;UTF16LE, 24>
+  @assert(@sizeof(u16) == 24)
 
-    # ASCII-US is NOT a built-in encoding
-    final ascii = "Hello, world!"asciius
-    ascii : String&lt;ASCII, 13>
-    @assert(@sizeof(ascii) == 13)
+  # ASCII-US is NOT a built-in encoding
+  final ascii = "Hello, world!"asciius
+  ascii : String&lt;ASCII, 13>
+  @assert(@sizeof(ascii) == 13)
 
-    final c = 'ф'
-    c : Char&lt;UCS>
-    @assert(@sizeof(c) == 4)
-    ```
+  final c = 'ф'
+  c : Char&lt;UCS>
+  @assert(@sizeof(c) == 4)
+  ```
 
-  * Distinct aliasing allows having a type with different methods, but the same layout.
+- Distinct aliasing allows having a type with different methods, but the same layout.
   For example, the `String` type is a distinct alias to an array of codeunits:
 
-    ```text
-    distinct alias String&lt;
-      Encoding: E,
-      Size: Z
-    > = Array&lt;Codeunit&lt;E>, Z>
-      # This method is only declared
-      # for strings, not arrays.
-      decl get_char(position : UBin32)
-    end
-    ```
+  ```text
+  distinct alias String&lt;
+    Encoding: E,
+    Size: Z
+  > = Array&lt;Codeunit&lt;E>, Z>
+    # This method is only declared
+    # for strings, not arrays.
+    decl get_char(position : UBin32)
+  end
+  ```
 
-  * `Any` real type implies a variant of all possible types.
+- `Any` real type implies a variant of all possible types.
   In practice, it is often constrained by an imaginary type to reduce the number of contained options and define behaviour.
   For example:
 
-    ```text
-    trait Logger
-      decl log()
+  ```text
+  trait Logger
+    decl log()
+  end
+
+  class Processor
+    # Stores a variant of all possible
+    # `Logger` implementations.
+    let logger : Any~Logger
+
+    def process()
+      # This is still any logger
+      logger : Any~Logger
+
+      # Thanks to its imaginary type,
+      # can call the declared method
+      logger.log()
     end
+  end
 
-    class Processor
-      # Stores a variant of all possible
-      # `Logger` implementations.
-      let logger : Any~Logger
-
-      def process()
-        # This is still any logger
-        logger : Any~Logger
-
-        # Thanks to its imaginary type,
-        # can call the declared method
-        logger.log()
+  struct MyLogger
+    derive Logger
+      impl log()
+        # Some implementation
       end
     end
+  end
+  ```
 
-    struct MyLogger
-      derive Logger
-        impl log()
-          # Some implementation
-        end
-      end
-    end
-    ```
-
-----
+---
 
 I could continue digging into Onyx features and examples, but for an introductory post, that should be enough.
 
@@ -932,36 +932,36 @@ All NXSF processes are going to be transparent and open.
 
 The Foundation will be governing several major and auxiliary standard specifications related to Onyx:
 
-  1. [The Onyx Programming Language Specification](https://github.com/nxsf/onyx).
-  The specification includes the following:
+1.  [The Onyx Programming Language Specification](https://github.com/nxsf/onyx).
+    The specification includes the following:
 
-      1. Language specification, including macro API specification.
+        1. Language specification, including macro API specification.
 
-      1. Platform identifiers specification.
-      For example, `amd64`, not `x86_64`.
-      The list includes [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture)s with meaningful default <abbr title="Instruction Set Extensions">ISE</abbr>s, modern processing units list (e.g. `skylake`) with set of enables ISEs for them, operating systems and ABIs.
+        1. Platform identifiers specification.
+        For example, `amd64`, not `x86_64`.
+        The list includes [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture)s with meaningful default <abbr title="Instruction Set Extensions">ISE</abbr>s, modern processing units list (e.g. `skylake`) with set of enables ISEs for them, operating systems and ABIs.
 
-      1. Portable API format informative specification.
-      So that raw API documentation generated by a compiler may be used by different documentation visualizers.
+        1. Portable API format informative specification.
+        So that raw API documentation generated by a compiler may be used by different documentation visualizers.
 
-      1. Expected optimizations informative specification.
-      So a user may safely rely on compiler optimizations, e.g. loop unrolling.
+        1. Expected optimizations informative specification.
+        So a user may safely rely on compiler optimizations, e.g. loop unrolling.
 
-  1. The Onyx Standard Library Package Specification.
-  Basically, a set of declarations which standard library package implementations shall obey.
+1.  The Onyx Standard Library Package Specification.
+    Basically, a set of declarations which standard library package implementations shall obey.
 
-  1. The Onyx Package Management Specification.
-  Defines client and server side APIs for relieable package acquisition.
-  This includes versioning algorithms and, for example, requiring third-party auditions.
+1.  The Onyx Package Management Specification.
+    Defines client and server side APIs for relieable package acquisition.
+    This includes versioning algorithms and, for example, requiring third-party auditions.
 
-  1. The Onyx Compiler Interface Specification.
-  So different compiler implementations had a unified interface to interact with, using DSON.
+1.  The Onyx Compiler Interface Specification.
+    So different compiler implementations had a unified interface to interact with, using DSON.
 
-  1. [Dead-Simple Object Notation (DSON) Specification](https://github.com/nxsf/dson).
-  This format is intended to be used in CLI to describe complex object structures.
+1.  [Dead-Simple Object Notation (DSON) Specification](https://github.com/nxsf/dson).
+    This format is intended to be used in CLI to describe complex object structures.
 
-  1. [DSON Schema Specification.](https://github.com/nxsf/dson-schema)
-  The standard to describe objects in DSON.
+1.  [DSON Schema Specification.](https://github.com/nxsf/dson-schema)
+    The standard to describe objects in DSON.
 
 Standardization process will be official, with responsible committees consisting of community-elected members called _community champions_, and businesses sponsoring the Foundation.
 The votes will be split evenly between community and businesses to represent both sides fairly.
@@ -980,7 +980,7 @@ In addition to monetary funding, NXSF would also sponsor recurring security audi
 
 Apart from funding packages, the Foundation will sponsor projects and events related to Onyx, including teaching conferences, teaching materials, integrations etc.
 
-----
+---
 
 Onyx is the perfect balance between productivity and performance, a language understandable well both by humans and machines.
 
@@ -989,7 +989,7 @@ I heartfully believe that Onyx may become a new lingua franca for decades until 
 
 Visit [nxsf.org](https://nxsf.org) to stay updated, and...
 
-----
+---
 
 ::: hero
 
@@ -997,4 +997,4 @@ Visit [nxsf.org](https://nxsf.org) to stay updated, and...
 
 :::
 
-----
+---
