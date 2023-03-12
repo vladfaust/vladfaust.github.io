@@ -33,6 +33,10 @@ Please, join me in this quest.
 
 -->
 
+TL;DR: I've created [AIStories](https://beta.aistories.xyz), a platform to simulate AI characters and a virtual world to create.
+
+<hr>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js" integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
