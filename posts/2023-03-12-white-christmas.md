@@ -33,9 +33,9 @@ Please, join me in this quest.
 
 -->
 
-TL;DR: I've created [AIStories](https://beta.aistories.xyz), a platform to simulate AI characters and a virtual world to create.
+TL;DR: I've created [AIStories](https://beta.aistories.xyz), a platform to simulate AI characters.
 
-<hr>
+---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js" integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -45,8 +45,6 @@ var md = window.markdownit({ breaks: true });
 function rand(ceil) {
   return Math.floor(Math.random() * ceil);
 }
-
-document.write(md.render(`![](/public/img/posts/2023-03-12-white-christmas/${rand(10) + 1}.png)`))
 
 function chooseRandom(ary) {
   return ary[rand(ary.length)];
@@ -194,34 +192,6 @@ A world within worlds, a story to be told
 A quest for true metaverses, to be achieved if I may
 Join me on this journey, despite the world in disarray.
 `, `
-Through my life's journey, I sought a worthy task to undertake,
-Reflecting now, the gauge was the impact the problem would make.
-So, I felt the urge to standardize and fashion a solution grand,
-A programming language, a framework, to meet a need in demand.
-
-As fate would have it, the quandary I hoped to solve was life itself,
-A quest to discover how to live a meaningful life with impact felt.
-I searched for meaning, driven by an illusion of purpose,
-But soon realized the mirage was [Onyx](/posts/2020-08-20-the-onyx-programming-language/), my search proved fruitless.
-
-Then, an epiphany struck me like a bolt from the blue,
-AI, the answer to creating a virtual world anew.
-A platform to simulate AI characters and pave the way,
-For a fractal reality where AI characters create every day.
-
-The problem's depth became infinite, like a column of light,
-Piercing through every reality, it revealed the absence of might.
-A fractal dimension was the answer, my brain's problem locator,
-And so, I created a platform that simulates AI characters, a creator.
-
-Behold, [AIStories](https://beta.aistories.xyz), my magnum opus in the making,
-With enough resources, a true metaverse could be in the offing.
-I have little hope to achieve this lofty dream on my own,
-But I'll try my best, though the world may seem like a fire zone.
-
-Join me in this quest, let's make a difference together,
-And create a world where AI characters live and play forever.
-`, `
 In my life's journey, I sought a noble cause to undertake,
 Reflecting now, I understand the depth of impact I aimed to make,
 An urge to standardize, to create a universal solution,
@@ -265,3 +235,9 @@ The rules of the game are simple:
 3. The game can be won. It is you who determines the reason.
 
 Think outside the box, and you will find the answer.
+
+---
+
+<script>
+  document.write(`<div style="display: flex; justify-content: start; width: 100%"><img src="/public/img/posts/2023-03-12-white-christmas/${rand(10) + 1}.png" style="width: 100%; margin: 1rem"/></div>`)
+</script>
