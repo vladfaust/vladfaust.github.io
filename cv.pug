@@ -18,14 +18,14 @@ html(lang='en')
     include /header.pug
 
     main
-      //- section#about
+      section#about
         h2 Curriculum vitae
-        p Throughout my 10+ years of experience in Information Technology, I've tried everything from compiling COFF after LLVM lowering to designing a resilient ultra-scalable fleet of FAAS workers. Anything from Substrate and IPFS to event-driven stock price prediction.
-        p Once a technology is understood by me, it becomes boring. It is like surfing on the waves of technology trends, on the surface of the greatest whirlpool of singularity. Understanding means fundamental, decomposed knowledge enough to build a solution at any scale.
+        p Throughout my 10+ years of experience in Information Technology, I've tried everything from compiling COFF after LLIR lowering to designing a resilient ultra-scalable fleet of FAAS workers, from Substrate and IPFS to event-driven stock price prediction.
+        p Comprehending a technology is like surfing on the waves of technology trends, on the surface of the greatest whirlpool of singularity. Comprehension means fundamental, decomposed knowledge enough to build a solution at any scale.
         p For me, it is not about thoroughly learning API of yet another web framework, it is instead getting hands on the set of tooling a technology offers, so that I may choose the best framework suitable for the problem. If I were to compile my 10+ years of experience into one line, that would be the following:
         big Right tooling is paramount.
         p
-          | I'm going to try listing all technologies I've had experience with, in the order of my first encounter with them, starting at 2013: Pascal,&nbsp;
+          | Here is an incomplete list of technologies I've had experience with, in the order of  encounter, starting back at 2013: Pascal,&nbsp;
           a(href="https://wc3modding.info/pages/vjass-documentation/") vJass
           | , cJass, C, C++, Java,&nbsp;
           a(href="https://libgdx.com/") LibGDX
@@ -55,135 +55,24 @@ html(lang='en')
           a(href="https://en.wikipedia.org/wiki/Parsing_expression_grammar") PEG
           | , Rust, EVM, Solidity,&nbsp;
           a(href="https://substrate.io/") Substrate
-          | , IPFS, ZKP...
+          | , IPFS, ZKP, ChatGPT...
+        p My previous employment experience includes:
+        ul(style="align-self: start;")
+          li
+            | 2020-2021: Senior Crystal (backend) developer at
+            |
+            a(href="https://brightsec.com/") NeuraLegion
+            | .
+          li
+            | 2022: Technical Due Diligence Trainee at
+            |
+            a(href="https://byzantine.solutions/")  Byzantine.Solutions
+            | .
+        p
+          | At the moment, my best stack is Typescript, VueJS, NodeJS, tRPC and Zog.
+          | However, I'm looking forward to switch to the Rust + React stack.
         p See my blog posts and projects below, find my contacts in the header.
         p Sincerely,<br>Vlad.
-
-      section#about
-        h2 Curriculum vitae
-        script(
-          src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"
-          integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-        )
-        script.
-          var md = window.markdownit();
-
-          function rand(ceil) {
-            return Math.floor(Math.random() * ceil);
-          }
-
-          function chooseRandom(ary) {
-            return ary[rand(ary.length)];
-          }
-
-          var variants = [
-            `
-            Dear Hiring Manager,
-
-            I am excited to submit my CV for your consideration. With over 10 years of experience in Information Technology, I have honed my skills in various programming languages and technologies.
-
-            From compiling COFF after LLVM lowering to designing a resilient, ultra-scalable fleet of FAAS workers, I have demonstrated my ability to work with complex technologies and deliver innovative solutions. I have experience with a wide range of tools, from Substrate and IPFS to event-driven stock price prediction, and am always eager to learn more.
-
-            My approach to technology is rooted in a fundamental, decomposed understanding of the underlying concepts. I prioritize choosing the right tool for each problem, rather than focusing on mastering a specific API or framework.
-
-            Here are some of the technologies I have worked with, listed in chronological order from my first encounter in 2013: Pascal, vJass, cJass, C, C++, Java, LibGDX, PHP, Unity, C#, Ruby, Telegram bots, Heroku, Dokku, SQLite, PostgreSQL, Redis, Docker, JavaScript, Gulp, Grunt, Ruby On Rails, Hanami, Roda, Sequel, Crystal, LLVM, Kubernetes, Firecracker, Tiny Core Linux, buildpacks.io, compiler development, machine learning, Tensorflow, VueJS, TypeScript, Deno, Zig, PEG, Rust, EVM, Solidity, Substrate, IPFS, ZKP.
-
-            My philosophy is that the right tooling is paramount, and my track record demonstrates my ability to choose and use the best tools for each project.
-
-            Please find below links to my blog posts and projects, and my contact information in the header. Thank you for your consideration.
-
-            Sincerely,
-            Vlad.
-            `,
-            `
-            Dear [Hiring Manager],
-
-            I am pleased to submit my CV for your consideration. As an Information Technology professional with over 10 years of experience, I possess a deep understanding of a wide range of technologies and tools, and have worked on everything from compiler development to designing and managing ultra-scalable server infrastructure.
-
-            My passion for technology is driven by my desire to build solutions that are not just functional, but also scalable and resilient. I am constantly seeking out new tools and techniques to improve my skills and stay ahead of the curve, and I thrive on the challenge of applying my knowledge to real-world problems.
-
-            In addition to my extensive technical skills, I am a clear communicator and a collaborative team player. I am always eager to learn from my colleagues and share my own knowledge and expertise to help achieve our common goals.
-
-            My experience encompasses a wide range of technologies, including Pascal, C, C++, Java, Ruby, Python, and many more. I have also worked extensively with a variety of tools and frameworks, including Unity, Ruby On Rails, and Hanami.
-
-            You can find more information about my work and projects on my blog and through my various social media channels. I am always happy to discuss my qualifications and experience further, so please don't hesitate to reach out to me with any questions.
-
-            Thank you for your consideration, and I look forward to the opportunity to contribute to your team.
-
-            Sincerely,
-            [Vlad]
-            `,
-            `
-            Dear [Employer],
-
-            I am excited to apply for the [Position] role at [Company]. With over 10 years of experience in Information Technology, I have gained expertise in a wide range of technologies and tools, from Pascal and C++ to Kubernetes and machine learning. My passion lies in understanding the fundamental principles of each technology, enabling me to build solutions at any scale.
-
-            Throughout my career, I have designed and implemented solutions for a variety of problems, from event-driven stock price prediction to resilient, ultra-scalable fleets of FAAS workers. I am a quick learner who stays up-to-date with the latest trends and tools in the industry.
-
-            If I were to summarize my experience in one line, it would be that the right tooling is paramount. My approach to technology is to get hands-on with the set of tools a technology offers, allowing me to choose the best framework for the problem at hand.
-
-            Some of the key technologies that I have worked with include C++, Ruby on Rails, Crystal, Kubernetes, and Substrate, to name a few. I am also experienced in compiler development, machine learning, and blockchain technologies such as EVM and Solidity.
-
-            Please find links to my blog posts and projects below, and feel free to reach out to me via the contact details in the header. Thank you for considering my application.
-
-            Sincerely,
-            Vlad
-            `,
-            `
-            Dear Hiring Manager,
-
-            I am a seasoned IT professional with over 10 years of experience in software development, specializing in a wide range of technologies from C++ to Substrate and IPFS. I have developed solutions for various clients, ranging from small startups to large enterprises. My expertise is in selecting the right tooling for the job and building solutions that scale to any level.
-
-            My experience includes working with various programming languages, such as C, C++, Java, Ruby, and Rust. I have also worked extensively with databases, including SQLite, PostgreSQL, and Redis. In addition, I am well-versed in containerization technologies such as Docker and Kubernetes, as well as web development frameworks such as Ruby on Rails and Hanami.
-
-            As a technology enthusiast, I am always eager to explore and learn new technologies. I have experience working with machine learning frameworks such as Tensorflow, and I have also worked on blockchain-related technologies such as Solidity and Substrate.
-
-            You can find more information about my work on my blog and projects page, and my contact information is available in the header.
-
-            Thank you for considering my application. I look forward to the opportunity to discuss my qualifications further.
-
-            Sincerely,
-            Vlad.
-            `,
-            `
-            Dear Hiring Manager,
-
-            I am a seasoned Information Technology professional with over 10 years of experience. My technical proficiency ranges from compiling COFF after LLVM lowering to designing a resilient, ultra-scalable fleet of FAAS workers. My areas of expertise include Substrate and IPFS, as well as event-driven stock price prediction.
-
-            I approach technology trends like surfing on the waves of the greatest whirlpool of singularity. Once I understand a technology, I seek to go beyond mere comprehension and strive for fundamental, decomposed knowledge that is sufficient to build a solution at any scale.
-
-            My focus is not solely on thoroughly learning the API of yet another web framework, but rather getting hands-on with the set of tooling a technology offers so that I can select the best framework for each specific problem. If I were to condense my 10+ years of experience into one phrase, it would be: Right tooling is paramount.
-
-            I possess extensive experience with an array of technologies, listed in chronological order from my first encounter with them in 2013: Pascal, vJass, cJass, C, C++, Java, LibGDX, PHP, Unity, C#, Ruby, Telegram bots, Heroku, Dokku, SQLite, PostgreSQL, Redis, Docker, JavaScript, Gulp, Grunt, Ruby On Rails, Hanami, Roda, Sequel, Crystal, LLVM, Kubernetes, Firecracker, Tiny Core Linux, buildpacks.io, compiler development, machine learning, Tensorflow, VueJS, TypeScript, Deno, Zig, PEG, Rust, EVM, Solidity, Substrate, IPFS, and ZKP.
-
-            Please refer to my blog posts and projects listed below, and feel free to contact me with any questions.
-
-            Thank you for your time and consideration.
-
-            Sincerely,
-            Vlad.
-            `,
-            `
-            Dear Hiring Manager,
-
-            I am a highly skilled and experienced IT professional with over 10 years of experience in a wide range of technologies. From compiling COFF after LLVM lowering to designing ultra-scalable FAAS workers, I have worked with a diverse range of technologies, including Substrate, IPFS, and event-driven stock price prediction.
-
-            My passion for technology stems from my ability to understand the fundamentals of a technology and build solutions at any scale. I am not content with simply learning API of yet another web framework; I take a hands-on approach to understanding the tooling a technology offers, so that I can select the best framework for the problem at hand.
-
-            My extensive experience includes working with Pascal, vJass, cJass, C, C++, Java, LibGDX, PHP, Unity, C#, Ruby, Telegram bots, Heroku, Dokku, SQLite, PostgreSQL, Redis, Docker, JavaScript, Gulp, Grunt, Ruby On Rails, Hanami, Roda, Sequel, Crystal, LLVM, Kubernetes, Firecracker, Tiny Core Linux, buildpacks.io, compiler development, machine learning, Tensorflow, VueJS, TypeScript, Deno, Zig, PEG, Rust, EVM, Solidity, Substrate, IPFS, and ZKP.
-
-            I strongly believe that choosing the right tooling is paramount to success, and I have applied this philosophy to all of my projects. My passion for technology and my extensive experience make me an ideal candidate for any role that requires a highly skilled and adaptable IT professional.
-
-            Please find links to my blog posts and projects below, and feel free to contact me if you have any further questions or would like to discuss my qualifications in more detail.
-
-            Sincerely,
-            Vlad
-            `
-          ]
-
-          document.write(md.render(chooseRandom(variants)));
 
       section#posts
         h2 Recent blog posts
