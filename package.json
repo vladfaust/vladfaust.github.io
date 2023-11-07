@@ -6,7 +6,7 @@
   "private": "true",
   "scripts": {
     "debug": "DEBUG=* npx @11ty/eleventy",
-    "dev": "npx concurrently \"npx gulp\" \"npx @11ty/eleventy --serve\"",
+    "dev": "npx concurrently \"npx gulp\" \"npx @11ty/eleventy --serve --port 8082\"",
     "build": "npx gulp processAdoc && npx @11ty/eleventy"
   },
   "keywords": [],
