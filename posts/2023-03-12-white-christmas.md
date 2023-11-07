@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: White Christmas
 location: Batumi, Georgia
 excerpt: We may be living in a fractal reality
